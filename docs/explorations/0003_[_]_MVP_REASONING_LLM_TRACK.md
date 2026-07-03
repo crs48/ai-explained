@@ -367,12 +367,12 @@ export default function Tokenizer() {
 ## Implementation Checklist
 
 **P0 — Scaffold + deploy**
-- [ ] `npm create astro@latest` (TS strict); add `@astrojs/mdx`, `@astrojs/react`.
-- [ ] Add Tailwind 4 via `@tailwindcss/vite`; define the color grammar tokens.
-- [ ] Set `site` + `base: '/ai-explained'` in `astro.config.mjs`.
-- [ ] Add `.github/workflows/deploy.yml`; set Pages source = GitHub Actions.
+- [x] `npm create astro@latest` (TS strict); add `@astrojs/mdx`, `@astrojs/react`.
+- [x] Add Tailwind 4 via `@tailwindcss/vite`; define the color grammar tokens.
+- [x] Set `site` + `base: '/ai-explained'` in `astro.config.mjs`.
+- [x] Add `.github/workflows/deploy.yml`; set Pages source = GitHub Actions.
 - [ ] Ship one hello‑world sticky Scrollama scene; verify it's live on Pages.
-- [ ] Add `LICENSE` (MIT) and `README`.
+- [x] Add `LICENSE` (MIT) and `README`.
 
 **P1 — Shared spine**
 - [ ] Add `scenes` + `tracks` content collections (schema from 0002).
