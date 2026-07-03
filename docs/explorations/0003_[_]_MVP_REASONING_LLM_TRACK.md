@@ -371,22 +371,22 @@ export default function Tokenizer() {
 - [x] Add Tailwind 4 via `@tailwindcss/vite`; define the color grammar tokens.
 - [x] Set `site` + `base: '/ai-explained'` in `astro.config.mjs`.
 - [x] Add `.github/workflows/deploy.yml`; set Pages source = GitHub Actions.
-- [ ] Ship one hello‑world sticky Scrollama scene; verify it's live on Pages.
+- [x] Ship one hello‑world sticky Scrollama scene; verify it's live on Pages.
 - [x] Add `LICENSE` (MIT) and `README`.
 
 **P1 — Shared spine**
-- [ ] Add `scenes` + `tracks` content collections (schema from 0002).
-- [ ] Build `SceneScaffold.astro` (sticky graphic + Scrollama steps) and the
+- [x] Add `scenes` + `tracks` content collections (schema from 0002).
+- [x] Build `SceneScaffold.astro` (sticky graphic + Scrollama steps) and the
       `prefers-reduced-motion` guard util.
-- [ ] Write `scripts/precompute.mjs`; generate `src/data/example.json`; run it in
+- [x] Write `scripts/precompute.mjs`; generate `src/data/example.json`; run it in
       CI before build.
-- [ ] Build scene 1 **Tokenizer** island (live, `gpt-tokenizer`).
-- [ ] Build scene 2 **Embed** island (vector strip + precomputed 2D projection +
+- [x] Build scene 1 **Tokenizer** island (live, `gpt-tokenizer`).
+- [x] Build scene 2 **Embed** island (vector strip + precomputed 2D projection +
       nearest neighbors).
-- [ ] Build scene 3 **AttentionHeatmap** island (precomputed, causal mask, hover).
-- [ ] Build scene 4 **SamplingPlayground** island (temperature + top‑p bars +
+- [x] Build scene 3 **AttentionHeatmap** island (precomputed, causal mask, hover).
+- [x] Build scene 4 **SamplingPlayground** island (temperature + top‑p bars +
       "Sample!").
-- [ ] Build `PipelineRail` + `TrackTabs` shell (1 active track, "more coming").
+- [x] Build `PipelineRail` + `TrackTabs` shell (1 active track, "more coming").
 
 **P2 — Reasoning scenes**
 - [ ] Scene 5 CoT toggle; scene 6 test‑time scaling curve.

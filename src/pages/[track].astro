@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import TrackView from "../components/TrackView.astro";
+
+export async function getStaticPaths() {
+  const tracks = await getCollection("tracks");
+  return tracks.map((t) => ({ params: { track: t.id }, props: { track: t } }));
+}
+
+const { track } = Astro.props;
+---
+
+<TrackView track={track} />

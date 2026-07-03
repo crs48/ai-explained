@@ -1,0 +1,26 @@
+---
+title: "A reasoning model is a next-token machine"
+subtitle: "Before a model can 'reason', it does what every LLM does — predict the next token. We'll build that spine, then see the one thing a reasoning model adds."
+kind: shared
+concepts: ["next-token prediction", "autoregression"]
+---
+
+Everything a large language model does comes down to answering **one question**,
+over and over: *given all the text so far, what token comes next?*
+
+That's it. ChatGPT, Claude, DeepSeek, o3 — under the hood they are all machines
+that read a sequence and output a probability distribution over the next little
+chunk of text. Then they append one and do it again.
+
+A **reasoning model** (like OpenAI's o-series or DeepSeek-R1) is the *same
+machine*. It isn't a new kind of neural network. The difference is that it was
+trained to **think out loud to itself for a long time before answering** — and
+that turns out to be startlingly powerful.
+
+To see why, we'll walk the pipeline every LLM shares — **tokenize → embed →
+attention → sample** — with things you can poke at each step. Then we'll add the
+one loop that makes a reasoning model reason.
+
+> Scroll on. The panel on the right changes as you go. The rail up top shows
+> which steps are **shared** with every model (dimmed) and which is **unique** to
+> reasoning (highlighted).

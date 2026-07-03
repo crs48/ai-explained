@@ -1,0 +1,63 @@
+{
+  "example": "The capital of France is",
+  "note": "Illustrative teaching values. Tokenization is computed live in the browser; these attention/embedding/next-token values are curated to be realistic and can be regenerated from GPT-2 small via `npm run precompute`.",
+  "nextToken": {
+    "prompt": "The capital of France is",
+    "candidates": [
+      { "token": " Paris", "logit": 4.6 },
+      { "token": " the", "logit": 2.3 },
+      { "token": " a", "logit": 2.1 },
+      { "token": " located", "logit": 1.7 },
+      { "token": " home", "logit": 1.5 },
+      { "token": " one", "logit": 1.2 },
+      { "token": " situated", "logit": 1.0 },
+      { "token": " known", "logit": 0.8 }
+    ],
+    "tailNote": "~50,249 other tokens share the rest of the probability mass."
+  },
+  "attention": {
+    "tokens": ["The", " capital", " of", " France", " is"],
+    "note": "One attention head, causal-masked (each token attends only to itself and earlier tokens). Row i = how much token i attends to each token.",
+    "matrix": [
+      [1.0, 0.0, 0.0, 0.0, 0.0],
+      [0.30, 0.70, 0.0, 0.0, 0.0],
+      [0.20, 0.50, 0.30, 0.0, 0.0],
+      [0.15, 0.25, 0.20, 0.40, 0.0],
+      [0.10, 0.45, 0.05, 0.35, 0.05]
+    ]
+  },
+  "embedding": {
+    "note": "A 2-D projection of a few dozen word vectors. Nearby = used in similar contexts. Coordinates are illustrative.",
+    "analogy": { "a": "king", "minus": "man", "plus": "woman", "answer": "queen" },
+    "words": [
+      { "word": "king", "x": 0.42, "y": 0.60, "group": "royalty" },
+      { "word": "queen", "x": 0.42, "y": 0.70, "group": "royalty" },
+      { "word": "man", "x": 0.30, "y": 0.62, "group": "royalty" },
+      { "word": "woman", "x": 0.30, "y": 0.72, "group": "royalty" },
+      { "word": "prince", "x": 0.48, "y": 0.56, "group": "royalty" },
+      { "word": "princess", "x": 0.48, "y": 0.66, "group": "royalty" },
+      { "word": "cat", "x": 0.78, "y": 0.30, "group": "animal" },
+      { "word": "dog", "x": 0.82, "y": 0.34, "group": "animal" },
+      { "word": "puppy", "x": 0.86, "y": 0.30, "group": "animal" },
+      { "word": "kitten", "x": 0.80, "y": 0.24, "group": "animal" },
+      { "word": "lion", "x": 0.88, "y": 0.40, "group": "animal" },
+      { "word": "wolf", "x": 0.90, "y": 0.36, "group": "animal" },
+      { "word": "France", "x": 0.20, "y": 0.30, "group": "country" },
+      { "word": "Italy", "x": 0.24, "y": 0.26, "group": "country" },
+      { "word": "Japan", "x": 0.16, "y": 0.22, "group": "country" },
+      { "word": "Spain", "x": 0.22, "y": 0.34, "group": "country" },
+      { "word": "Paris", "x": 0.30, "y": 0.18, "group": "city" },
+      { "word": "Rome", "x": 0.34, "y": 0.14, "group": "city" },
+      { "word": "Tokyo", "x": 0.26, "y": 0.10, "group": "city" },
+      { "word": "Madrid", "x": 0.32, "y": 0.22, "group": "city" },
+      { "word": "computer", "x": 0.62, "y": 0.78, "group": "tech" },
+      { "word": "algorithm", "x": 0.66, "y": 0.82, "group": "tech" },
+      { "word": "data", "x": 0.58, "y": 0.82, "group": "tech" },
+      { "word": "network", "x": 0.64, "y": 0.74, "group": "tech" },
+      { "word": "bread", "x": 0.72, "y": 0.60, "group": "food" },
+      { "word": "cheese", "x": 0.76, "y": 0.64, "group": "food" },
+      { "word": "wine", "x": 0.70, "y": 0.66, "group": "food" },
+      { "word": "coffee", "x": 0.74, "y": 0.56, "group": "food" }
+    ]
+  }
+}

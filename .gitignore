@@ -21,3 +21,8 @@ npm-debug.log*
 
 # model weight cache (precompute)
 .cache/
+
+# playwright / preview verification artifacts
+.playwright-mcp/
+/*.png
+

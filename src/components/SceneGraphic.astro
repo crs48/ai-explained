@@ -1,0 +1,19 @@
+---
+/** Renders a scene's interactive island by key, each lazily hydrated on scroll
+ *  (`client:visible`). Literal tags are required so Astro can generate the
+ *  hydration entrypoints. Add a case here when you add an island. */
+import Tokenizer from "./islands/Tokenizer";
+import EmbeddingSpace from "./islands/EmbeddingSpace";
+import AttentionHeatmap from "./islands/AttentionHeatmap";
+import SamplingPlayground from "./islands/SamplingPlayground";
+
+interface Props {
+  component: string;
+}
+const { component } = Astro.props;
+---
+
+{component === "Tokenizer" && <Tokenizer client:visible />}
+{component === "EmbeddingSpace" && <EmbeddingSpace client:visible />}
+{component === "AttentionHeatmap" && <AttentionHeatmap client:visible />}
+{component === "SamplingPlayground" && <SamplingPlayground client:visible />}
