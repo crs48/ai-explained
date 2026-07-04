@@ -61,7 +61,7 @@ const rail = resolved.map(({ entry, highlight }) => ({
   import scrollama from "scrollama";
   const scroller = scrollama();
   const setup = () =>
-    scroller.setup({ step: ".scene", offset: 0.55 }).onStepEnter(({ element }) => {
+    scroller.setup({ step: ".scene", offset: 0.5 }).onStepEnter(({ element }) => {
       const id = (element as HTMLElement).dataset.sceneId;
       if (id) document.dispatchEvent(new CustomEvent("scene:active", { detail: { id } }));
     });
