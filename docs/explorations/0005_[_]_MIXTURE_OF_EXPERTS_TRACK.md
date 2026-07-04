@@ -325,25 +325,25 @@ const gates = top.map(([i], j) => ({ expert: i, gate: exps[j] / sum }));
 
 ## Implementation Checklist
 
-- [ ] Add `src/data/moe.json` with the verified model table (+ per-row source
+- [x] Add `src/data/moe.json` with the verified model table (+ per-row source
       URLs, `rumor` flag for GPT-4).
-- [ ] Build `MoEBlockSwap` island (Dense↔MoE toggle; FFN splits into 8 experts
+- [x] Build `MoEBlockSwap` island (Dense↔MoE toggle; FFN splits into 8 experts
       + router; attention marked "shared — unchanged").
-- [ ] Build `TokenRouter` island (sentence tokens routed one-by-one: logit bars
+- [x] Build `TokenRouter` island (sentence tokens routed one-by-one: logit bars
       → softmax → top-2 arrows weighted by gate → merged output; a curated
       color-tokens-by-expert reveal showing syntax-not-topic clustering).
-- [ ] Build `ActiveParams` island (model picker from `moe.json`; total-vs-active
+- [x] Build `ActiveParams` island (model picker from `moe.json`; total-vs-active
       bars; sparsity ratio readout; rumor badge for GPT-4).
-- [ ] Build `LoadBalancer` island (streaming expert-utilization histogram with
+- [x] Build `LoadBalancer` island (streaming expert-utilization histogram with
       three modes: no balancing → collapse; aux loss; DeepSeek bias).
-- [ ] Build `MoEMyths` island (three flip cards: topic-specialists / ensemble /
+- [x] Build `MoEMyths` island (three flip cards: topic-specialists / ensemble /
       memory — myth front, evidence back).
-- [ ] Register all five islands in `registry.ts` + `SceneGraphic.astro`.
-- [ ] Author scenes: `moe-intro`, `moe-swap`, `moe-routing`, `moe-scale`,
+- [x] Register all five islands in `registry.ts` + `SceneGraphic.astro`.
+- [x] Author scenes: `moe-intro`, `moe-swap`, `moe-routing`, `moe-scale`,
       `moe-balance`, `moe-myths` (reuse `tokenize`, `embed`,
       `transformer-block`, `sample` untouched).
-- [ ] Add `src/content/tracks/moe-llm.json` (order 4, `moe-swap` highlighted).
-- [ ] Reduced-motion + SSR-safety on every new island (per repo conventions).
+- [x] Add `src/content/tracks/moe-llm.json` (order 4, `moe-swap` highlighted).
+- [x] Reduced-motion + SSR-safety on every new island (per repo conventions).
 - [ ] Verify locally (build + browser pass over all 10 scenes), then ship:
       branch → PR → merge to `main` → deploy green.
 
