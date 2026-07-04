@@ -1,0 +1,26 @@
+---
+title: "Step 5 — Chain of thought"
+subtitle: "The first upgrade: let the model think out loud before it answers."
+kind: unique
+component: CoTToggle
+concepts: ["chain of thought", "reasoning"]
+---
+
+Here's where a reasoning model starts to diverge from a plain one. Ask a plain
+LLM to multiply two numbers and it often blurts a wrong answer — it has to
+produce the result in a single step, with no room to work.
+
+**Chain-of-thought** fixes this: the model generates intermediate reasoning steps
+*before* the final answer. Astonishingly, just adding **"let's think step by
+step"** to a prompt makes models much better at multi-step problems.
+
+Toggle it in the panel and watch two things happen at once:
+
+- The answer becomes **correct** — the model decomposes the problem into pieces
+  it can each handle, and the written-out steps act as a **scratchpad**.
+- The **token counter climbs**. That's the real mechanism: every token the model
+  writes is another full pass through the network. A longer trace literally buys
+  the model **more computation** to spend before committing.
+
+That second point is the whole game. If thinking longer helps… what happens if
+we let it think *much* longer?

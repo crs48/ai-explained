@@ -1,0 +1,28 @@
+---
+title: "Step 7 — The reasoning loop"
+subtitle: "The one thing reasoning adds: a long chain of thought the model reads back to itself before answering."
+kind: unique
+component: SelfRecursionLoop
+concepts: ["autoregression", "reasoning tokens", "self-recursion"]
+---
+
+This is the heart of it — and the punchline of the whole track.
+
+A reasoning model is **the same autoregressive next-token machine** you just built.
+There is **no new neural architecture**. The difference is entirely in behavior:
+before answering, it generates a long stream of **reasoning tokens** — an internal
+chain of thought — and *feeds its own thoughts back in* as it goes. Thought by
+thought, it deliberates: checks itself, backtracks, tries another route.
+
+Press **Run both** in the panel. The plain LLM and the reasoning LLM run the exact
+same loop on the same question. The plain one answers instantly (and here, gets it
+wrong). The reasoning one thinks first — and gets it right.
+
+The two vendors differ in what they *show* you:
+
+- **DeepSeek-R1** prints its full reasoning inside `<think>…</think>` tags.
+- **OpenAI's o-series** hides the reasoning — you get only a short summary — but
+  you're still **billed for those hidden reasoning tokens** as output.
+
+That's the entire trick. Everything after this is about how you *train* a model to
+reason well, and how you spend that thinking budget.

@@ -1,0 +1,32 @@
+---
+title: "Step 8 — Training it to reason"
+subtitle: "Reinforcement learning with verifiable rewards — and an 'aha moment' nobody programmed."
+kind: unique
+component: TrainingReasoning
+concepts: ["reinforcement learning", "GRPO", "verifiable rewards", "aha moment"]
+---
+
+How do you get a model to think like that? Not by showing it millions of example
+solutions — but with **reinforcement learning from verifiable rewards (RLVR)**.
+The recipe: let the model attempt problems, **reward the correct answers**, and
+let it discover *how* to get there.
+
+Drag the training slider in the panel. As reinforcement learning proceeds on
+DeepSeek-R1-Zero, three things happen together:
+
+- **AIME accuracy climbs** from 15.6% toward 71%.
+- **Answers get longer** — the model teaches *itself* to think more.
+- It starts saying **"Wait…"** and reconsidering. This emergent self-correction
+  is the famous **"aha moment"** — nobody wrote a rule telling it to double-check.
+
+Two ideas make this practical:
+
+- **Verifiable rewards.** Instead of a fragile learned reward model, R1 uses
+  rules: *is the math answer right? does the code pass its tests?* Objective and
+  hard to game.
+- **GRPO** — the RL algorithm — drops PPO's separate "critic" network. It samples
+  a *group* of answers per question and uses the group's own average as the
+  baseline. Cheaper, and it scales.
+
+A finished reasoning model can then be **distilled** into much smaller ones — the
+reasoning transfers.

@@ -389,14 +389,14 @@ export default function Tokenizer() {
 - [x] Build `PipelineRail` + `TrackTabs` shell (1 active track, "more coming").
 
 **P2 — Reasoning scenes**
-- [ ] Scene 5 CoT toggle; scene 6 test‑time scaling curve.
-- [ ] Scene 7 **SelfRecursionLoop** island (side‑by‑side, token/cost meter,
+- [x] Scene 5 CoT toggle; scene 6 test‑time scaling curve.
+- [x] Scene 7 **SelfRecursionLoop** island (side‑by‑side, token/cost meter,
       OpenAI/DeepSeek toggle) — the unique core; mark `highlight: true`.
-- [ ] Scene 8 training (R1‑Zero vs R1, GRPO vs PPO, reward toggle, aha scrubber).
-- [ ] Scene 9 **StrategyMorpher** (line → vote → tree → loop; difficulty dial).
-- [ ] Scene 10 effort dial (accuracy/latency/cost meters; s1 easter egg).
-- [ ] Scene 11 faithfulness caveat (two‑column; 25%/39% sourced).
-- [ ] Wire the full `reasoning-llm` track data file; rail highlights scene 7.
+- [x] Scene 8 training (R1‑Zero vs R1, GRPO vs PPO, reward toggle, aha scrubber).
+- [x] Scene 9 **StrategyMorpher** (line → vote → tree → loop; difficulty dial).
+- [x] Scene 10 effort dial (accuracy/latency/cost meters; s1 easter egg).
+- [x] Scene 11 faithfulness caveat (two‑column; 25%/39% sourced).
+- [x] Wire the full `reasoning-llm` track data file; rail highlights scene 7.
 
 **P3 — Polish & launch**
 - [ ] a11y pass: keyboard steps, `aria-live`, focus, JS‑off readability.

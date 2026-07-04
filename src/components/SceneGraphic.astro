@@ -6,6 +6,13 @@ import Tokenizer from "./islands/Tokenizer";
 import EmbeddingSpace from "./islands/EmbeddingSpace";
 import AttentionHeatmap from "./islands/AttentionHeatmap";
 import SamplingPlayground from "./islands/SamplingPlayground";
+import CoTToggle from "./islands/CoTToggle";
+import TestTimeScaling from "./islands/TestTimeScaling";
+import SelfRecursionLoop from "./islands/SelfRecursionLoop";
+import TrainingReasoning from "./islands/TrainingReasoning";
+import StrategyMorpher from "./islands/StrategyMorpher";
+import EffortDial from "./islands/EffortDial";
+import FaithfulnessCaveat from "./islands/FaithfulnessCaveat";
 
 interface Props {
   component: string;
@@ -17,3 +24,10 @@ const { component } = Astro.props;
 {component === "EmbeddingSpace" && <EmbeddingSpace client:visible />}
 {component === "AttentionHeatmap" && <AttentionHeatmap client:visible />}
 {component === "SamplingPlayground" && <SamplingPlayground client:visible />}
+{component === "CoTToggle" && <CoTToggle client:visible />}
+{component === "TestTimeScaling" && <TestTimeScaling client:visible />}
+{component === "SelfRecursionLoop" && <SelfRecursionLoop client:visible />}
+{component === "TrainingReasoning" && <TrainingReasoning client:visible />}
+{component === "StrategyMorpher" && <StrategyMorpher client:visible />}
+{component === "EffortDial" && <EffortDial client:visible />}
+{component === "FaithfulnessCaveat" && <FaithfulnessCaveat client:visible />}

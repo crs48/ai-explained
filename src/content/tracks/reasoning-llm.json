@@ -9,6 +9,13 @@
     { "scene": "tokenize" },
     { "scene": "embed" },
     { "scene": "transformer-block" },
-    { "scene": "sample" }
+    { "scene": "sample" },
+    { "scene": "cot" },
+    { "scene": "test-time-scaling" },
+    { "scene": "self-recursion", "highlight": true },
+    { "scene": "training-reasoning" },
+    { "scene": "strategy-zoo" },
+    { "scene": "reasoning-effort" },
+    { "scene": "faithfulness" }
   ]
 }

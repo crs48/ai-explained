@@ -1,0 +1,24 @@
+---
+title: "Step 9 — Ways to search"
+subtitle: "A single chain is just the start. You can branch, vote, build trees, or loop."
+kind: unique
+component: StrategyMorpher
+concepts: ["self-consistency", "tree of thoughts", "reflection"]
+---
+
+Once a model can reason, there are many ways to *use* that ability at inference
+time — and each has a different shape. Flip through them in the panel:
+
+- **Greedy chain of thought** — one line of reasoning, straight through.
+- **Self-consistency** — sample *many* independent chains and take the
+  **majority vote**. Different paths, same destination.
+- **Tree of thoughts** — branch at each step, evaluate partial solutions, **prune**
+  dead ends, and **backtrack**. On the "Game of 24" puzzle, GPT-4 solved 4% with
+  plain chain-of-thought versus **74%** with tree search.
+- **Reflection** — a genuine loop: generate an answer, **critique it, revise**,
+  repeat.
+
+Which is best depends on the problem: research suggests you should **revise** on
+easy problems and **search wider** on hard ones. Reasoning models bake a lot of
+this behavior directly into their single long chain of thought — but the same
+ideas power the scaffolds built around them.
