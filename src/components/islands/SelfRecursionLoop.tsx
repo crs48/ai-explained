@@ -93,7 +93,7 @@ export default function SelfRecursionLoop() {
       <div className="grid flex-1 grid-cols-2 gap-3">
         {/* Plain LLM */}
         <div className="flex flex-col rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] p-3">
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">Plain LLM</h4>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">Plain LLM</p>
           <div className="mt-2 flex-1 font-mono text-sm">
             {running && (
               <p className="text-[var(--color-fg)]">
@@ -108,7 +108,7 @@ export default function SelfRecursionLoop() {
         {/* Reasoning LLM */}
         <div className="flex flex-col rounded-xl border p-3" style={{ borderColor: "var(--color-unique-500)", background: "color-mix(in oklab, var(--color-unique-500) 8%, var(--color-surface))" }}>
           <div className="flex items-center justify-between">
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--color-unique-400)]">Reasoning LLM</h4>
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-unique-400)]">Reasoning LLM</p>
             {running && (
               <span className="font-mono text-[10px] text-[var(--color-muted)]">
                 {tokens} reasoning tokens
