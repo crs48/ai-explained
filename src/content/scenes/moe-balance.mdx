@@ -1,0 +1,30 @@
+---
+title: "Step 7 — Keeping the experts alive"
+subtitle: "The failure mode nobody advertises: routers left alone collapse onto a favorite expert. Break one and watch."
+kind: unique
+component: LoadBalancer
+concepts: ["load balancing", "router collapse", "auxiliary loss"]
+---
+
+There's a trap hiding in the router, and it was spotted in the very first
+sparse-MoE paper: a **rich-get-richer loop**. Whichever expert happens to be
+picked slightly more often gets more training signal, so it improves, so the
+router picks it *even more* — until one expert is doing nearly all the work and
+the rest are **dead weight**. All that capacity you paid for, wasted.
+
+Try it in the panel: set the mode to **"No balancing"** and watch the collapse.
+Then try the two eras of fixes:
+
+- **Auxiliary loss** (Switch Transformer, 2021): add a small penalty (α ≈ 0.01)
+  whenever token traffic is uneven. Simple, effective — but it tugs against the
+  model's main objective, which can cost a little quality.
+- **Bias nudges** (DeepSeek-V3, 2024, "auxiliary-loss-free"): no penalty at all.
+  Each expert gets a tiny bias used *only* when the router ranks experts — nudged
+  down each step it's overloaded, up when it's starved. Traffic levels out
+  without ever touching the loss.
+
+This unglamorous plumbing is a real reason MoE took a decade to go mainstream —
+and a quiet ingredient in why DeepSeek's models train so cheaply.
+
+With the experts balanced, the block's job is done. What happens next? Exactly
+what you already know.

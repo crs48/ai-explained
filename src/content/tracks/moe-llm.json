@@ -1,0 +1,19 @@
+{
+  "title": "Mixture of Experts",
+  "family": "language",
+  "order": 4,
+  "tagline": "How frontier models get huge without every token paying for it.",
+  "available": true,
+  "path": [
+    { "scene": "moe-intro" },
+    { "scene": "tokenize" },
+    { "scene": "embed" },
+    { "scene": "transformer-block" },
+    { "scene": "moe-swap", "highlight": true },
+    { "scene": "moe-routing" },
+    { "scene": "moe-scale" },
+    { "scene": "moe-balance" },
+    { "scene": "sample" },
+    { "scene": "moe-myths" }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "note": "Verified MoE model figures (primary sources per row). Params in billions. 'shared' = always-on shared experts per MoE layer. GPT-4 row is an UNCONFIRMED rumor and must render with a rumor badge.",
+  "models": [
+    {
+      "name": "Mixtral 8×7B",
+      "released": "Dec 2023",
+      "total": 46.7,
+      "active": 12.9,
+      "experts": 8,
+      "topK": 2,
+      "shared": 0,
+      "rumor": false,
+      "source": "https://mistral.ai/news/mixtral-of-experts"
+    },
+    {
+      "name": "DeepSeek-V3",
+      "released": "Dec 2024",
+      "total": 671,
+      "active": 37,
+      "experts": 256,
+      "topK": 8,
+      "shared": 1,
+      "rumor": false,
+      "source": "https://arxiv.org/abs/2412.19437"
+    },
+    {
+      "name": "Llama 4 Maverick",
+      "released": "Apr 2025",
+      "total": 400,
+      "active": 17,
+      "experts": 128,
+      "topK": 1,
+      "shared": 1,
+      "rumor": false,
+      "source": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
+      "name": "Qwen3-235B",
+      "released": "Apr 2025",
+      "total": 235,
+      "active": 22,
+      "experts": 128,
+      "topK": 8,
+      "shared": 0,
+      "rumor": false,
+      "source": "https://qwenlm.github.io/blog/qwen3/"
+    },
+    {
+      "name": "gpt-oss-120b",
+      "released": "Aug 2025",
+      "total": 117,
+      "active": 5.1,
+      "experts": 128,
+      "topK": 4,
+      "shared": 0,
+      "rumor": false,
+      "source": "https://openai.com/index/introducing-gpt-oss/"
+    },
+    {
+      "name": "GPT-4",
+      "released": "Mar 2023",
+      "total": 1800,
+      "active": 280,
+      "experts": 16,
+      "topK": 2,
+      "shared": 0,
+      "rumor": true,
+      "source": "https://semianalysis.com/2023/07/10/gpt-4-architecture-infrastructure/"
+    }
+  ],
+  "routingDemo": {
+    "note": "Curated routing for the TokenRouter island — illustrative, but reproduces verified findings (Mixtral §5): clustering is syntactic/token-level (whitespace, punctuation, numbers), NOT topical, and consecutive tokens often share experts.",
+    "sentence": ["def", " add", "(", "a", ",", " b", ")", ":", " return", " a", " +", " b"],
+    "expertNames": ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8"],
+    "assignments": [
+      { "token": "def", "top": [2, 5], "gates": [0.72, 0.28] },
+      { "token": " add", "top": [4, 2], "gates": [0.61, 0.39] },
+      { "token": "(", "top": [7, 0], "gates": [0.8, 0.2] },
+      { "token": "a", "top": [4, 6], "gates": [0.55, 0.45] },
+      { "token": ",", "top": [7, 0], "gates": [0.83, 0.17] },
+      { "token": " b", "top": [4, 6], "gates": [0.58, 0.42] },
+      { "token": ")", "top": [7, 0], "gates": [0.79, 0.21] },
+      { "token": ":", "top": [7, 2], "gates": [0.66, 0.34] },
+      { "token": " return", "top": [2, 5], "gates": [0.7, 0.3] },
+      { "token": " a", "top": [4, 6], "gates": [0.57, 0.43] },
+      { "token": " +", "top": [1, 7], "gates": [0.64, 0.36] },
+      { "token": " b", "top": [4, 6], "gates": [0.59, 0.41] }
+    ]
+  }
+}
