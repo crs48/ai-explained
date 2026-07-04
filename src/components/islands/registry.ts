@@ -28,6 +28,10 @@ export const ISLAND_KEYS = [
   "BackpropGraph",
   "TinyTrainer",
   "OverfitLab",
+  "SuperpositionToy",
+  "InductionHead",
+  "LogitLens",
+  "FeatureSteering",
 ] as const;
 
 export type IslandKey = (typeof ISLAND_KEYS)[number];

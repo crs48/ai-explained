@@ -535,17 +535,17 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
 **Phase 2 — Inside the Black Box (LLM internals)**
 - [ ] Author scenes: `internals-intro`, `superposition` (highlight),
       `induction-heads`, `logit-lens`, `steering`, `internals-recap`.
-- [ ] Build islands: `SuperpositionToy` (live toy-model training + sparsity
+- [x] Build islands: `SuperpositionToy` (live toy-model training + sparsity
       slider; fall back to precomputed W per notch if slow), `InductionHead`
       (curated `[A][B]…[A]→[B]` heatmap), `LogitLens` (per-layer prediction
       ladder), `FeatureSteering` (discrete slider over precomputed outputs).
-- [ ] Add `src/data/internals.json` (logit-lens table, steering outputs,
+- [x] Add `src/data/internals.json` (logit-lens table, steering outputs,
       induction pattern), curated from published examples, cited.
 - [ ] Register islands; add `src/content/tracks/inside-the-black-box.json`
       (`order: 4`).
 - [ ] Tab bar grouping pass in `TrackTabs.astro` (Start here / Language /
       Image / Under the hood) — needed at 5–6 tracks.
-- [ ] (Optional) Neuronpedia `?embed=true` iframe in `steering` behind a
+- [x] (Optional) Neuronpedia `?embed=true` iframe in `steering` behind a
       "load live demo" click; (optional) `scripts/gen-internals-data.py`
       (TransformerLens) to replace curated JSON with generated data.
 

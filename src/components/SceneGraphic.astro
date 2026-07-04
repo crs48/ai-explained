@@ -27,6 +27,10 @@ import GradientBowl from "./islands/GradientBowl";
 import BackpropGraph from "./islands/BackpropGraph";
 import TinyTrainer from "./islands/TinyTrainer";
 import OverfitLab from "./islands/OverfitLab";
+import SuperpositionToy from "./islands/SuperpositionToy";
+import InductionHead from "./islands/InductionHead";
+import LogitLens from "./islands/LogitLens";
+import FeatureSteering from "./islands/FeatureSteering";
 
 interface Props {
   component: string;
@@ -59,3 +63,7 @@ const { component } = Astro.props;
 {component === "BackpropGraph" && <BackpropGraph client:visible />}
 {component === "TinyTrainer" && <TinyTrainer client:visible />}
 {component === "OverfitLab" && <OverfitLab client:visible />}
+{component === "SuperpositionToy" && <SuperpositionToy client:visible />}
+{component === "InductionHead" && <InductionHead client:visible />}
+{component === "LogitLens" && <LogitLens client:visible />}
+{component === "FeatureSteering" && <FeatureSteering client:visible />}
