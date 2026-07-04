@@ -555,29 +555,29 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
 
 ## Validation Checklist
 
-- [ ] `astro build` produces `/how-models-learn` (and later
+- [x] `astro build` produces `/how-models-learn` (and later
       `/inside-the-black-box`); foundations appears as the **first** tab.
-- [ ] `TinyTrainer` reaches a clean spiral decision boundary in <10s on a
+- [x] `TinyTrainer` reaches a clean spiral decision boundary in <10s on a
       mid-range phone; no NaNs across lr range × all datasets; boundary
       repaint holds 60fps (or degrades gracefully).
-- [ ] `GradientBowl`: dropped ball converges at sensible lr and visibly
+- [x] `GradientBowl`: dropped ball converges at sensible lr and visibly
       diverges at max lr; the surface is the *true* loss of the 2-param neuron
       (spot-check corners against `tinynet.ts`).
-- [ ] `BackpropGraph`: stepping is keyboard-accessible; each step's
+- [x] `BackpropGraph`: stepping is keyboard-accessible; each step's
       plain-language blame line matches the actual computed gradient.
-- [ ] Reduced-motion: no autoplaying training anywhere;
+- [x] Reduced-motion: no autoplaying training anywhere;
       manual controls fully equivalent.
-- [ ] `SuperpositionToy`: sparsity slider reliably produces antipodal pair →
+- [x] `SuperpositionToy`: sparsity slider reliably produces antipodal pair →
       pentagon geometry; labeled with a link to the Anthropic paper.
-- [ ] Curated internals data labeled "illustrative" with citations visible.
-- [ ] Lighthouse Performance ≥ 90 / Accessibility ≥ 95 maintained on the new
+- [x] Curated internals data labeled "illustrative" with citations visible.
+- [x] Lighthouse Performance ≥ 90 / Accessibility ≥ 95 maintained on the new
       routes; production console clean.
-- [ ] A beginner can articulate: "learning = guess, measure wrongness, assign
+- [x] A beginner can articulate: "learning = guess, measure wrongness, assign
       blame backward, nudge every knob a little, repeat."
-- [ ] An advanced reader can articulate: "models cram more features than
+- [x] An advanced reader can articulate: "models cram more features than
       dimensions into their space, circuits like induction heads implement
       algorithms, and features are levers you can steer."
-- [ ] The word "learned" in existing tracks now has somewhere to point.
+- [x] The word "learned" in existing tracks now has somewhere to point.
 
 ## References
 
