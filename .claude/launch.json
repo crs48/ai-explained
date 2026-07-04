@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 4321
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "export PATH=\"$HOME/.nvm/versions/node/v22.16.0/bin:$PATH\"; npm run dev"],
+      "port": 4321,
+      "autoPort": true
     }
   ]
 }
