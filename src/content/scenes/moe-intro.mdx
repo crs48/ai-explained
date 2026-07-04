@@ -1,0 +1,25 @@
+---
+title: "The trillion-parameter trick"
+subtitle: "Frontier models got enormous without making every token pay for it. The trick is a division of labor — and it's one small swap away from the LLM you already know."
+kind: shared
+concepts: ["mixture of experts", "sparsity", "conditional computation"]
+---
+
+Here's a tension at the heart of modern AI. Bigger models know more — scaling
+laws reward parameters. But in a plain ("dense") transformer, **every token you
+process touches essentially every parameter**. Capacity and per-token cost are
+chained together: double the brain, double the bill for every single word.
+
+**Mixture of Experts (MoE)** breaks that chain. It's how DeepSeek-V3 can have
+**671 billion** parameters but spend only **37 billion** of them on each token —
+and it's the architecture behind nearly every frontier model today: Mixtral,
+DeepSeek, Llama 4, Qwen3, Gemini, OpenAI's gpt-oss.
+
+The best part, for you: MoE is **not a new kind of model**. It's the exact
+transformer from the other tracks — same tokens, same embeddings, same
+attention — with **one swap inside each block**. A layer of the network becomes
+a *team*, and a tiny learned "router" decides which few team members handle each
+token.
+
+The familiar steps are dimmed in the rail above. Let's speed through them and
+get to the swap.

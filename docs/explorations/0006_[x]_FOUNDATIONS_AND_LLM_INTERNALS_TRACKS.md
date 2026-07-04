@@ -278,7 +278,7 @@ tab, `family: "foundations"`. Nine scenes, five new islands, no data files:
 | 8 | `generalization` | shared | `OverfitLab` | noise + capacity sliders; memorizing vs generalizing; train/test split |
 | 9 | `learn-recap` | unique | — | bridge + scale shock: your 340-param net next to GPT-3 at true relative size; "now revisit the other tabs — *learned* means this" |
 
-**Phase 2 — "Inside the Black Box" (LLM internals).** `order: 4`, last tab,
+**Phase 2 — "Inside the Black Box" (LLM internals).** `order: 5` (after the MoE track landed as 4), last tab,
 `family: "interpretability"`. Six scenes, four new islands, one curated data
 file (`src/data/internals.json`):
 
@@ -308,7 +308,7 @@ flowchart LR
         D["Image Diffusion"]
     end
     subgraph Internals["🔬 Deep end"]
-        I["Inside the Black Box<br/>order 4 · NEW"]
+        I["Inside the Black Box<br/>order 5 · NEW"]
     end
     F -->|"'learned' now means something"| R & C & D
     R & C & D -->|"but what do the weights MEAN?"| I
@@ -542,7 +542,7 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
 - [x] Add `src/data/internals.json` (logit-lens table, steering outputs,
       induction pattern), curated from published examples, cited.
 - [x] Register islands; add `src/content/tracks/inside-the-black-box.json`
-      (`order: 4`).
+      (`order: 5`).
 - [x] Tab bar grouping pass in `TrackTabs.astro` (Start here / Language /
       Image / Under the hood) — needed at 5–6 tracks.
 - [x] (Optional) Neuronpedia `?embed=true` iframe in `steering` behind a

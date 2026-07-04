@@ -15,6 +15,7 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'ignore',
+  server: { port: Number(process.env.PORT) || 4321 },
   integrations: [react(), mdx()],
   vite: {
     plugins: [tailwindcss()],

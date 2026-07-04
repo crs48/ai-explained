@@ -1,0 +1,31 @@
+---
+title: "Step 5 — The router at work"
+subtitle: "A tiny learned layer scores the experts for every token. Watch a line of code get routed — then see what experts really specialize in."
+kind: unique
+component: TokenRouter
+concepts: ["routing", "top-k", "gating", "expert specialization"]
+---
+
+The router is almost embarrassingly simple: **one small linear layer**. It looks
+at a token's vector and produces a score (a *logit*) for each expert. Then —
+exactly like the sampling step you know — a **softmax** turns scores into
+weights. Mixtral's recipe: keep the **top 2**, cut everyone else to −∞ (their
+weight becomes zero), and blend the two chosen experts' outputs by their weights:
+
+> y = g₁ · Expertᵃ(x) + g₂ · Expertᵇ(x)
+
+Step through the panel, or hit **Route them all**. Every token gets its own
+scoring, its own top-2, its own blend — and this happens independently **in
+every MoE block**, so the same token consults different experts at different
+depths.
+
+Then comes the reveal, and it's the part most people get wrong. When Mixtral's
+authors analyzed real routing, they found **no topic specialists** — no math
+expert, no biology expert. ArXiv papers and philosophy essays route almost
+identically. What clusters instead is **syntax**: punctuation flocks to one
+expert, identifiers to another, whitespace and keywords elsewhere. Related
+research found "punctuation experts" and "number experts" — the division of
+labor is real, just far weirder and lower-level than the name "expert" suggests.
+
+So each token only pays for 2 of 8 experts. Time to see what that buys at
+frontier scale.

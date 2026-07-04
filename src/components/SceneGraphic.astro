@@ -20,6 +20,11 @@ import LatentSpace from "./islands/LatentSpace";
 import CrossAttention from "./islands/CrossAttention";
 import GuidanceScale from "./islands/GuidanceScale";
 import DenoiserToggle from "./islands/DenoiserToggle";
+import MoEBlockSwap from "./islands/MoEBlockSwap";
+import TokenRouter from "./islands/TokenRouter";
+import ActiveParams from "./islands/ActiveParams";
+import LoadBalancer from "./islands/LoadBalancer";
+import MoEMyths from "./islands/MoEMyths";
 import NeuronForge from "./islands/NeuronForge";
 import NetworkComposer from "./islands/NetworkComposer";
 import LossMeter from "./islands/LossMeter";
@@ -56,6 +61,11 @@ const { component } = Astro.props;
 {component === "CrossAttention" && <CrossAttention client:visible />}
 {component === "GuidanceScale" && <GuidanceScale client:visible />}
 {component === "DenoiserToggle" && <DenoiserToggle client:visible />}
+{component === "MoEBlockSwap" && <MoEBlockSwap client:visible />}
+{component === "TokenRouter" && <TokenRouter client:visible />}
+{component === "ActiveParams" && <ActiveParams client:visible />}
+{component === "LoadBalancer" && <LoadBalancer client:visible />}
+{component === "MoEMyths" && <MoEMyths client:visible />}
 {component === "NeuronForge" && <NeuronForge client:visible />}
 {component === "NetworkComposer" && <NetworkComposer client:visible />}
 {component === "LossMeter" && <LossMeter client:visible />}

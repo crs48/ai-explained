@@ -3,7 +3,7 @@
 ## Problem Statement
 
 0004 ranked **Embeddings/RAG** as the next track after diffusion ("highest
-reuse"), and 0005's foundations/internals work pushed it back one slot. Now
+reuse"); the Mixture-of-Experts track (0005) and the foundations/internals work (0006) pushed it back. Now
 it's up. The gap it fills: every track *uses* embeddings (the shared `embed`
 scene) but the site never explains the embedding **ecosystem** readers
 actually touch every day — semantic search, "chat with your PDF,"
@@ -13,12 +13,12 @@ the pattern behind nearly every "AI that knows *your* data" product.
 It's also the site's first **system** track: RAG isn't a new model family,
 it's a *composition* of two models the reader has already met (an embedding
 model + a chat LLM) around a data structure (a vector index). That's a new
-kind of story for the site — and the tab grouping shipped in 0005
+kind of story for the site — and the tab grouping shipped in 0006
 (`TrackTabs.astro`) gives it a natural home.
 
 Builds on [0002 taxonomy](0002_[_]_MODEL_TAXONOMY_AND_SHARED_SCENE_ARCHITECTURE.md),
 [0004 roadmap](0004_[_]_NEXT_TRACKS_IMAGE_DIFFUSION.md), and
-[0005 foundations/internals](0005_[_]_FOUNDATIONS_AND_LLM_INTERNALS_TRACKS.md).
+[0006 foundations/internals](0006_[x]_FOUNDATIONS_AND_LLM_INTERNALS_TRACKS.md).
 
 ## Executive Summary
 
@@ -47,14 +47,14 @@ load transformers.js behind a click, exactly like the LLM track's
   king−man+woman demo). The new track wraps this island in new narration
   (wrapper-scene pattern proven by `text-encoder.mdx`).
 - **Wrapper-scene precedent** — `src/content/scenes/text-encoder.mdx`
-  (diffusion) re-frames a shared island; `TrackLink.astro` (0005) links
+  (diffusion) re-frames a shared island; `TrackLink.astro` (0006) links
   across tracks.
 - **Precompute seam** — `scripts/precompute.mjs` already generates
   `src/data/example.json`; the corpus embeddings extend this script (or a
   sibling `scripts/embed-corpus.mjs` run manually, committed output).
 - **Track slot** — `src/content/tracks/` + `TrackTabs.astro` `GROUPS`: add
   family `"systems"` under a new group (label: `"systems"` or fold into
-  `"language"`). `order: 5`.
+  `"language"`). `order: 6`.
 - **Live-model precedent** — `LiveModel.tsx` (transformers.js text-gen behind
   a click) is the exact pattern for optional live embedding.
 - **Data budget** — 300 docs × 384 dims × float32 ≈ 460 KB raw; quantize to
@@ -140,7 +140,7 @@ track's optional finale-adjacent bonus (same stance as `LiveModel`).
 
 ## Recommendation
 
-**Track: "Search by Meaning"** — `family: "systems"`, `order: 5`, new
+**Track: "Search by Meaning"** — `family: "systems"`, `order: 6`, new
 `TrackTabs` group `systems`. Path:
 
 | # | Scene | Kind | Island | Beat |
@@ -193,7 +193,7 @@ sequenceDiagram
 {
   "title": "Search by Meaning",
   "family": "systems",
-  "order": 5,
+  "order": 6,
   "tagline": "Embeddings turn meaning into geometry — and RAG turns your documents into something an LLM can actually know.",
   "available": true,
   "path": [
@@ -240,7 +240,7 @@ const topK = chunks.map((c) => ({ c, s: score(queryVec, c.vec) }))
   int8-quantize (both preserve top-k ordering well enough at toy scale;
   verify overlap@3 against full vectors in the embed script).
 - **Curated generations must not oversell** — label authored answers
-  illustrative (0005's franchise); the failure scene is the credibility
+  illustrative (0006's franchise); the failure scene is the credibility
   anchor.
 - **`embed-meaning` wrapper vs. plain reuse** — reusing `embed.mdx` verbatim
   mid-track re-numbers oddly ("Step 2 — Embed" inside a systems track).
@@ -260,7 +260,7 @@ const topK = chunks.map((c) => ({ c, s: score(queryVec, c.vec) }))
       (corpus map + live cosine top-k), `RagAssembler` (prompt assembly +
       curated with/without-retrieval outputs), `RagFailures`.
 - [ ] Register islands in `registry.ts` + `SceneGraphic.astro`.
-- [ ] Add `search-by-meaning.json` (`order: 5`) and a `systems` group to
+- [ ] Add `search-by-meaning.json` (`order: 6`) and a `systems` group to
       `TrackTabs.astro` `GROUPS`.
 - [ ] (Optional) `LiveEmbed` island: transformers.js free-text query
       embedding behind a click, reusing `LiveModel`'s loading pattern.
