@@ -533,7 +533,7 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
       (small edits to shared scenes — allowed, additive).
 
 **Phase 2 — Inside the Black Box (LLM internals)**
-- [ ] Author scenes: `internals-intro`, `superposition` (highlight),
+- [x] Author scenes: `internals-intro`, `superposition` (highlight),
       `induction-heads`, `logit-lens`, `steering`, `internals-recap`.
 - [x] Build islands: `SuperpositionToy` (live toy-model training + sparsity
       slider; fall back to precomputed W per notch if slow), `InductionHead`
@@ -541,9 +541,9 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
       ladder), `FeatureSteering` (discrete slider over precomputed outputs).
 - [x] Add `src/data/internals.json` (logit-lens table, steering outputs,
       induction pattern), curated from published examples, cited.
-- [ ] Register islands; add `src/content/tracks/inside-the-black-box.json`
+- [x] Register islands; add `src/content/tracks/inside-the-black-box.json`
       (`order: 4`).
-- [ ] Tab bar grouping pass in `TrackTabs.astro` (Start here / Language /
+- [x] Tab bar grouping pass in `TrackTabs.astro` (Start here / Language /
       Image / Under the hood) — needed at 5–6 tracks.
 - [x] (Optional) Neuronpedia `?embed=true` iframe in `steering` behind a
       "load live demo" click; (optional) `scripts/gen-internals-data.py`

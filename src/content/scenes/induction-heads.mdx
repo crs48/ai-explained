@@ -1,0 +1,42 @@
+---
+title: "Step 2 — Induction heads: the first circuit"
+subtitle: "Two attention heads that team up to implement a copy algorithm — the 'hello world' of reverse-engineered LLM machinery."
+kind: unique
+component: InductionHead
+concepts: ["induction heads", "circuits", "in-context learning", "attention"]
+---
+
+In the LLM tracks you met attention as a *mechanism* — every token queries
+every earlier token. But mechanism isn't purpose. What did training actually
+*use* attention to build? Here's the first complete answer anyone extracted:
+the **induction head**, a tiny algorithm for continuing patterns:
+
+> *If you've seen `[A][B]` before, and you're looking at `[A]` again — predict
+> `[B]`.*
+
+Once "Mr Dursley" has appeared, the next "Mr D" should continue "ursley". No
+grammar, no meaning — pure pattern completion. The panel shows the attention
+map in the same rows-look-at-columns language as the attention scene. Read
+the bottom row: the head finds the *previous occurrence* of the current
+token and locks onto the token **right after it** — the teal-ringed cell.
+That target is what gets copied into the prediction.
+
+Under the hood it's a genuine two-part **circuit**: one head in an earlier
+layer marks each token with "what came before me," and the induction head in
+a later layer uses that marking to find the match-and-look-ahead cell. Two
+learned parts, composing into one legible algorithm — discovered *in* the
+weights, not designed into them.
+
+Now toggle **trained** off. That smear is what attention looks like before
+the circuit forms. In real training runs the flip happens abruptly — a sudden
+drop in loss early in training (the "induction bump") right when these heads
+snap into place. And their reach goes far beyond literal copying: induction
+heads are a leading candidate for why LLMs can do **in-context learning** —
+following patterns from your prompt that they were never trained on.
+Fuzzier versions match `[A*][B*]…[A]→[B-ish]`, completing analogies rather
+than echoes.
+
+One legible circuit, found. The uncomfortable news: a frontier model likely
+contains *millions* of interacting circuits, and this is among the very few
+fully mapped. That's the gap the next two panels start to close from other
+angles.

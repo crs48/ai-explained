@@ -1,0 +1,39 @@
+---
+title: "We built it. It works. Nobody fully knows why."
+subtitle: "Training sculpted billions of knobs into something that writes poetry — but what did the knobs become? Welcome to interpretability."
+kind: unique
+concepts: ["interpretability", "black box", "features", "circuits"]
+---
+
+import TrackLink from "../../components/TrackLink.astro";
+
+Here's the strangest fact on this site. The other tracks showed you *how* the
+machinery runs — tokens, attention, denoising, and the training loop from
+<TrackLink track="how-models-learn">How Models Learn</TrackLink> that set every
+weight. All of that is understood. What the weights *ended up encoding* — the
+actual program gradient descent wrote — is **not**.
+
+Nobody hand-designed what attention head 7 in layer 23 does. Nobody chose which
+neuron should care about the Golden Gate Bridge. Training found those
+solutions on its own, and they arrive as billions of raw numbers with no
+documentation. We built the loom; the weave surprised us.
+
+**Interpretability** is the young science of reverse-engineering that weave —
+reading the program *out of* the weights. This track walks four of its
+landmark findings, roughly from "how ideas are stored" to "how they can be
+steered":
+
+1. **Superposition** — models cram more concepts than they have dimensions,
+   like a closet with more coats than hooks. You'll train the actual toy model
+   from the discovery paper, live.
+2. **Induction heads** — the first complete *circuit*: a two-head algorithm
+   for copying patterns, verifiable by eye.
+3. **The logit lens** — watch an answer crystallize layer by layer through the
+   model's depth.
+4. **Feature steering** — find the knob for a concept and *turn it*, the
+   result Anthropic made famous as Golden Gate Claude.
+
+> Fair warning about honesty, since this track is the most research-frontier
+> material on the site: two panels train real models in your browser; two show
+> **curated, illustrative** data clearly labeled as such, imitating published
+> results. The papers are linked everywhere — check our work.
