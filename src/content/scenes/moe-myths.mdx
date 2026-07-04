@@ -1,0 +1,28 @@
+---
+title: "Step 9 — Three myths about experts"
+subtitle: "The name 'Mixture of Experts' invites exactly the wrong mental pictures. Bust all three before you go."
+kind: unique
+component: MoEMyths
+concepts: ["misconceptions", "specialization", "memory vs compute"]
+---
+
+"Mixture of Experts" is a great name and a misleading one. It conjures a panel
+of specialists — a doctor, a lawyer, a mathematician — voting on your question.
+Almost none of that picture survives contact with the evidence. Tap each card in
+the panel and see for yourself:
+
+1. **"Experts are topic specialists."** Mixtral's own routing analysis found no
+   subject-matter specialization at all — the real clusters are *syntactic*
+   (punctuation, numbers, indentation), just as you saw in the routing scene.
+2. **"MoE is an ensemble of separate models."** The experts are FFN fragments
+   *inside every layer*; one token weaves a different path through them at every
+   depth. There are no eight little models — which is why 8×7B ≠ 56B.
+3. **"Only the active experts need to be in memory."** Every expert must be
+   loaded, because any token might need any of them at any layer. **Memory
+   scales with total; compute scales with active.** MoE models are cheap to
+   *run*, not small to *hold*.
+
+And that's the whole track. The same pipeline you've known since the first
+scroll — tokenize, embed, attend, sample — with one sublayer that learned to
+delegate. From Mixtral's 8 experts to DeepSeek's 256, that single idea is how
+today's frontier models got enormous without sending every token the full bill.

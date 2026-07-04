@@ -1,0 +1,32 @@
+---
+title: "Step 6 — Total vs. active"
+subtitle: "The payoff: models with the knowledge of hundreds of billions of parameters, at the per-token cost of a small one."
+kind: unique
+component: ActiveParams
+concepts: ["total parameters", "active parameters", "sparsity"]
+---
+
+Now the numbers. An MoE model has two sizes, and the gap between them is the
+whole point:
+
+- **Total parameters** — every expert in every layer. This is what must sit in
+  memory, and where the *knowledge* lives.
+- **Active parameters** — the slice one token actually runs through: the shared
+  layers plus its chosen experts. This is what you pay in **compute**, per token.
+
+Flip through the models in the panel. **Mixtral** kicked off the open-source MoE
+era: 46.7B total, 12.9B active — it matched or beat Llama 2 70B *with roughly 6×
+faster inference*. **DeepSeek-V3** pushed it further: 671B total, 37B active —
+about **5.5%** of the model working per token, with 256 tiny experts per layer
+instead of 8 big ones. OpenAI's open-weights **gpt-oss-120b** activates just
+**4.4%**.
+
+That's the industry trend in one line: **more, smaller experts; lower active
+fraction** — ever more capacity for the same per-token compute. It's a big part
+of why training DeepSeek-V3 cost only about $5.6M in GPU time.
+
+(And yes, GPT-4 is in the picker — widely believed to be an MoE, never
+confirmed. It wears its rumor badge.)
+
+One catch, though. All of this depends on the router spreading work *evenly* —
+and left alone, routers don't.

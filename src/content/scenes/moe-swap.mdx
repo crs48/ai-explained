@@ -1,0 +1,32 @@
+---
+title: "Step 4 — The swap"
+subtitle: "The one thing MoE changes: the feed-forward layer becomes a team of experts behind a router. Attention doesn't change at all."
+kind: unique
+component: MoEBlockSwap
+concepts: ["experts", "router", "FFN", "sparse activation"]
+---
+
+You just saw self-attention — where tokens share context. After attention, each
+transformer block has a second stage: the **feed-forward network (FFN)**, the
+dense thinking layer where roughly two-thirds of a model's parameters live.
+
+**That FFN is the entire swap.** Flip the toggle in the panel:
+
+- **Dense:** one big FFN. Every token flows through *all* of it — all those
+  parameters, every time.
+- **MoE:** the same slot now holds **eight separate FFNs** — the "experts" — and
+  a **router**: a single tiny learned layer that scores all eight and sends the
+  token to the **top 2**. The other six sit idle, costing *nothing* for this
+  token.
+
+Notice what did **not** change: the attention layer above is untouched, and so
+are the embeddings, the norms, and everything downstream. That's why MoE isn't a
+new kind of model — it's a dense transformer where one sublayer learned to
+delegate.
+
+One honest nuance: models differ on *which* blocks get the swap. Mixtral does it
+in every block; Llama 4 Maverick alternates dense and MoE blocks; DeepSeek-V3
+keeps its first three blocks dense. The mechanism is identical everywhere it
+appears.
+
+So how does that router actually decide? Let's route some real tokens.

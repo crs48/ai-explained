@@ -21,6 +21,11 @@ export const ISLAND_KEYS = [
   "CrossAttention",
   "GuidanceScale",
   "DenoiserToggle",
+  "MoEBlockSwap",
+  "TokenRouter",
+  "ActiveParams",
+  "LoadBalancer",
+  "MoEMyths",
 ] as const;
 
 export type IslandKey = (typeof ISLAND_KEYS)[number];
