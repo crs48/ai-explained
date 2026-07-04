@@ -20,6 +20,13 @@ import LatentSpace from "./islands/LatentSpace";
 import CrossAttention from "./islands/CrossAttention";
 import GuidanceScale from "./islands/GuidanceScale";
 import DenoiserToggle from "./islands/DenoiserToggle";
+import NeuronForge from "./islands/NeuronForge";
+import NetworkComposer from "./islands/NetworkComposer";
+import LossMeter from "./islands/LossMeter";
+import GradientBowl from "./islands/GradientBowl";
+import BackpropGraph from "./islands/BackpropGraph";
+import TinyTrainer from "./islands/TinyTrainer";
+import OverfitLab from "./islands/OverfitLab";
 
 interface Props {
   component: string;
@@ -45,3 +52,10 @@ const { component } = Astro.props;
 {component === "CrossAttention" && <CrossAttention client:visible />}
 {component === "GuidanceScale" && <GuidanceScale client:visible />}
 {component === "DenoiserToggle" && <DenoiserToggle client:visible />}
+{component === "NeuronForge" && <NeuronForge client:visible />}
+{component === "NetworkComposer" && <NetworkComposer client:visible />}
+{component === "LossMeter" && <LossMeter client:visible />}
+{component === "GradientBowl" && <GradientBowl client:visible />}
+{component === "BackpropGraph" && <BackpropGraph client:visible />}
+{component === "TinyTrainer" && <TinyTrainer client:visible />}
+{component === "OverfitLab" && <OverfitLab client:visible />}

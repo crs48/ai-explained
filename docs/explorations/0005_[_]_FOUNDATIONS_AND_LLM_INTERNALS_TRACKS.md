@@ -515,16 +515,16 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
 - [x] Build `src/lib/tinynet.ts`: zero-dependency scalar MLP
       (forward/sgdStep/datasets XOR·circle·spiral, seeded RNG, grad clipping).
       Unit-test convergence in a quick script.
-- [ ] Build islands: `NeuronForge`, `NetworkComposer` (per-neuron boundary
+- [x] Build islands: `NeuronForge`, `NetworkComposer` (per-neuron boundary
       thumbnails), `LossMeter`, `GradientBowl` (true 2-param surface,
       click-to-drop, lr slider), `BackpropGraph` (step-driven graph walk,
       button/keyboard stepping), `TinyTrainer` (live training + boundary
       canvas), `OverfitLab` (noise/capacity sliders, train/test split).
-- [ ] Register all islands in `registry.ts` + literal tags in
+- [x] Register all islands in `registry.ts` + literal tags in
       `SceneGraphic.astro`.
 - [ ] Add `src/content/tracks/how-models-learn.json` (`order: 0`,
       `gradient-descent` highlighted).
-- [ ] Reduced-motion: autoplay training gated behind
+- [x] Reduced-motion: autoplay training gated behind
       `prefersReducedMotion()` with manual step buttons as the fallback.
 - [ ] `learn-recap` scale-shock beat: static SVG of the 340-param net vs GPT-3
       at true relative area (Bbycroft's move).

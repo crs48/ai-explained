@@ -21,6 +21,13 @@ export const ISLAND_KEYS = [
   "CrossAttention",
   "GuidanceScale",
   "DenoiserToggle",
+  "NeuronForge",
+  "NetworkComposer",
+  "LossMeter",
+  "GradientBowl",
+  "BackpropGraph",
+  "TinyTrainer",
+  "OverfitLab",
 ] as const;
 
 export type IslandKey = (typeof ISLAND_KEYS)[number];
