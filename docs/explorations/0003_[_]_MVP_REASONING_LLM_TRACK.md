@@ -409,7 +409,7 @@ export default function Tokenizer() {
 
 ## Validation Checklist
 
-- [ ] Site is live at `https://<user>.github.io/ai-explained/` with no asset 404s.
+- [x] Site is live at `https://<user>.github.io/ai-explained/` with no asset 404s.
 - [x] The full reasoning narrative reads top‑to‑bottom with **JavaScript
       disabled**.
 - [x] Live tokenizer updates instantly as you type; "strawberry" visibly splits;
@@ -424,7 +424,7 @@ export default function Tokenizer() {
 - [x] `prefers-reduced-motion: reduce` disables animation and shows final states.
 - [ ] Scroll holds ~60fps on a mid‑range laptop and a real phone.
 - [x] Heavy islands hydrate only on approach (verified in Network panel).
-- [ ] Lighthouse: Performance ≥ 90 (landing), Accessibility ≥ 95.
+- [x] Lighthouse: Performance ≥ 90 (landing), Accessibility ≥ 95.
 - [x] **Scalability proof**: defining a `chat-llm` track that reuses scenes 1–4
       requires *no changes* to those scenes' code — only a new track data file.
 - [x] A reader can restate "reasoning = chat LLM + a long thinking loop, trained
