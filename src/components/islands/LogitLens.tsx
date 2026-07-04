@@ -80,7 +80,7 @@ export default function LogitLens() {
       <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-surface-2)] p-2.5 text-xs text-[var(--color-fg)]" aria-live="polite">
         The answer <code className="text-[var(--color-shared-400)]">{prompt.answer.trim()}</code>{" "}
         first takes the lead at <strong>layer {firstWin}</strong> of {prompt.layers.length - 1} —
-        early layers offer generic filler, middle layers narrow to the right *kind* of thing
+        early layers offer generic filler, middle layers narrow to the right <em>kind</em> of thing
         (cities, capitals), late layers just grow more certain. Depth isn't repetition; it's
         refinement.
       </div>

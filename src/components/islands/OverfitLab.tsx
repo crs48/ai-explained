@@ -5,6 +5,7 @@ import {
   createNet,
   forward,
   makeDataset,
+  mulberry32,
   netLoss,
   sgdStep,
   type Net,
@@ -56,6 +57,14 @@ export default function OverfitLab() {
     window.cancelAnimationFrame(rafRef.current ?? 0);
     const spec = CAPACITIES.find((c) => c.key === cap)!;
     const pts = makeDataset("circle", N, noise, 23);
+    // Shuffle before splitting — the circle generator alternates classes by
+    // index, so a parity split without this would put every inside point in
+    // train and every ring point in test.
+    const rand = mulberry32(99);
+    for (let i = pts.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [pts[i], pts[j]] = [pts[j], pts[i]];
+    }
     trainRef.current = pts.filter((_, i) => i % 2 === 0);
     testRef.current = pts.filter((_, i) => i % 2 === 1);
     const net = createNet([...spec.sizes], 42);
