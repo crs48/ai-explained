@@ -465,7 +465,7 @@ function buildFrames(img: ImageData, steps: number): ImageData[] {
       slider changes the output at w ∈ {0,1,7,20}.
 - [x] Cross‑attention overlay: selecting a prompt word highlights the intended
       image region; labeled "illustrative."
-- [ ] Production console clean across all diffusion scenes; Lighthouse
+- [x] Production console clean across all diffusion scenes; Lighthouse
       Performance ≥ 90 / Accessibility ≥ 95 maintained.
 - [x] A reader can articulate: "the prompt uses the same tokenize→embed→transformer
       front‑end as an LLM, then a different engine denoises an image, steered by the
