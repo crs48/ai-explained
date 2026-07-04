@@ -454,9 +454,9 @@ function buildFrames(img: ImageData, steps: number): ImageData[] {
 
 ## Validation Checklist
 
-- [ ] `astro build` produces `/chat-llm` and `/image-diffusion` routes; tab bar
+- [x] `astro build` produces `/chat-llm` and `/image-diffusion` routes; tab bar
       shows all three live tracks.
-- [ ] The diffusion track reuses `tokenize` + `embed` with **no edits** to those
+- [x] The diffusion track reuses `tokenize` + `embed` with **no edits** to those
       scenes (reuse proven); the pipeline rail dims them (teal) and highlights
       `denoising` (magenta core).
 - [x] The denoising scrubber morphs noise → image smoothly and works with
