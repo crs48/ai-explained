@@ -6,6 +6,8 @@ component: Alignment
 concepts: ["instruction tuning", "SFT", "RLHF", "alignment"]
 ---
 
+import TrackLink from "../../components/TrackLink.astro";
+
 Everything up to here — tokenize, embed, attention, sample — describes a
 **pretrained** model. And a pretrained model has a surprising flaw: it doesn't
 answer questions. It only **continues text**. Ask it "How do I make pizza?" and it
@@ -15,7 +17,9 @@ Flip through the stages in the panel to see the same model become an assistant:
 
 - **Base (pretrained):** trained only to predict the next token on the whole
   internet. It autocompletes — it doesn't follow instructions.
-- **+ Instruction tuning (SFT):** fine-tune on many curated *instruction →
+- **+ Instruction tuning (SFT):** fine-tune (the same gradient-descent loop
+  from <TrackLink track="how-models-learn">How Models Learn</TrackLink>, on new
+  data) on many curated *instruction →
   good response* examples. Now it learns the assistant format and actually does
   what's asked.
 - **+ RLHF:** humans **rank** competing responses; a **reward model** learns

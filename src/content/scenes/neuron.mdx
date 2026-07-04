@@ -1,0 +1,35 @@
+---
+title: "Step 1 — One neuron"
+subtitle: "A neuron is a tiny opinion with knobs: weigh the inputs, add a bias, squash the result."
+kind: shared
+component: NeuronForge
+concepts: ["neuron", "weights", "bias", "activation function"]
+---
+
+Strip away the mystique and a **neuron** is one small formula:
+
+`out = activation(w₁·x₁ + w₂·x₂ + b)`
+
+It takes its inputs, multiplies each by a **weight** (how much it cares),
+adds a **bias** (its baseline mood), and passes the total through an
+**activation function** (how sharply it commits to an answer).
+
+The panel shows one neuron's opinion about *every possible input at once* —
+amber on one side, blue on the other. Drag the knobs:
+
+- The **weights** tilt the dividing line. Big w₁ means "input 1 decides."
+- The **bias** slides the line without turning it.
+- The **activation** sets the edge: `step` is a hard verdict, `sigmoid` and
+  `tanh` are graded confidence, `ReLU` only speaks up on one side.
+
+Two things to hold onto. First, those knobs — the weights and bias — are the
+neuron's **parameters**. When we say a model *learns*, we mean exactly this:
+**its parameters change**. Nothing else about it does.
+
+Second, notice what one neuron *can't* do: its boundary is always a straight
+line. However you set the knobs, it can only split the world in two with one
+cut. Keep that limitation in mind for the next panel.
+
+> A frontier LLM is made of the same ingredient. The difference is quantity:
+> your browser is drawing one neuron's three knobs; GPT-4-class models have
+> on the order of a **trillion**.

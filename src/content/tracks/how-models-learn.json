@@ -1,0 +1,18 @@
+{
+  "title": "How Models Learn",
+  "family": "foundations",
+  "order": 0,
+  "tagline": "Every other tab says 'learned.' This one shows you the machine that does the learning.",
+  "available": true,
+  "path": [
+    { "scene": "learn-intro" },
+    { "scene": "neuron" },
+    { "scene": "network" },
+    { "scene": "loss" },
+    { "scene": "gradient-descent", "highlight": true },
+    { "scene": "backprop" },
+    { "scene": "training-live" },
+    { "scene": "generalization" },
+    { "scene": "learn-recap" }
+  ]
+}

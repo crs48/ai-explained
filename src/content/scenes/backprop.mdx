@@ -1,0 +1,38 @@
+---
+title: "Step 5 — Backpropagation"
+subtitle: "One question, asked backwards through the network: how much are YOU to blame?"
+kind: shared
+component: BackpropGraph
+concepts: ["backpropagation", "chain rule", "computational graph", "gradients"]
+---
+
+Gradient descent needs the gradient — a blame number for **every** knob. With
+two knobs you could find it by wiggling each one and re-measuring. With a
+billion, wiggle-and-check would take geologic time. **Backpropagation**
+computes *all* the blames in one backward sweep, and it's why deep learning
+is possible at all.
+
+The panel lays one neuron out as a **computational graph** — every multiply,
+add, and squash as its own node. Step through it:
+
+- **Forward** (blue numbers): the input flows left to right, exactly the
+  arithmetic from Step 1, ending in a loss.
+- **Backward** (pink ∇ numbers): the loss asks the node before it, *"how much
+  did you move me?"* — and that node asks *its* inputs, and so on, right to
+  left. Each answer is the node's local effect **multiplied by** the blame
+  arriving from ahead of it. Calculus calls this the **chain rule**; you can
+  read it as *blame flows backward, scaled at every step*.
+
+Notice the division of labor when you reach the knobs:
+
+- The **add** node passes blame through untouched.
+- The **multiply** node scales blame by *the other input* — so a knob that was
+  amplifying a big signal gets more blame than one riding a small signal.
+
+When the sweep finishes, press **apply the nudge**: every knob moves against
+its gradient, and the loss drops. Forward, backward, nudge — you just did one
+lap of the training loop, by hand.
+
+> A real training step is this exact walk over a graph with billions of nodes,
+> run by autograd machinery (PyTorch, JAX) instead of your thumb — millions of
+> laps, batched thousands of examples at a time. Same walk. Bigger graph.

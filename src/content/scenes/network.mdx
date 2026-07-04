@@ -1,0 +1,35 @@
+---
+title: "Step 2 — Neurons compose"
+subtitle: "Stack straight lines through a squash, and you can bend space into any shape you need."
+kind: shared
+component: NetworkComposer
+concepts: ["layers", "hidden units", "composition", "XOR"]
+---
+
+The panel's data is the classic **XOR** problem: blue lives in two opposite
+quadrants, amber in the other two. No single straight line can separate them —
+which means the neuron from last panel, alone, *cannot solve this*. This
+exact limitation stalled neural-net research for years.
+
+The fix is embarrassingly simple: **use more than one, in layers.**
+
+Your browser just trained a network with **four hidden neurons** feeding one
+output neuron. Look at the little thumbnails — each hidden neuron is still
+just a straight-line splitter, exactly like the last panel. Click one to see
+its view of the world, full size.
+
+Then look at the combined map. The output neuron takes those four straight
+opinions, weighs them (with its own learned weights!), and blends them into a
+**bent boundary** that carves out all four quadrants correctly.
+
+That's the whole trick, and it's the deepest fact in this track:
+
+- One neuron: a line.
+- One layer of neurons + a blend: corners and curves.
+- Layers upon layers: *any shape at all.* This is (informally) the
+  **universal approximation** property.
+
+**Depth composes.** Early neurons learn simple cuts; later neurons combine
+cuts into shapes; still-later ones combine shapes into concepts. In the LLM
+tracks you saw the same story at scale — attention layers stacking 80+ deep,
+each refining the last layer's work.

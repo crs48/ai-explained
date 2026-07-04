@@ -508,7 +508,7 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
 ## Implementation Checklist
 
 **Phase 1 — How Models Learn (foundations)**
-- [ ] Author scenes: `learn-intro`, `neuron`, `network`, `loss`,
+- [x] Author scenes: `learn-intro`, `neuron`, `network`, `loss`,
       `gradient-descent` (highlight), `backprop`, `training-live`,
       `generalization`, `learn-recap` — with the site's "honest asterisk"
       voice throughout.
@@ -522,13 +522,13 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
       canvas), `OverfitLab` (noise/capacity sliders, train/test split).
 - [x] Register all islands in `registry.ts` + literal tags in
       `SceneGraphic.astro`.
-- [ ] Add `src/content/tracks/how-models-learn.json` (`order: 0`,
+- [x] Add `src/content/tracks/how-models-learn.json` (`order: 0`,
       `gradient-descent` highlighted).
 - [x] Reduced-motion: autoplay training gated behind
       `prefersReducedMotion()` with manual step buttons as the fallback.
-- [ ] `learn-recap` scale-shock beat: static SVG of the 340-param net vs GPT-3
+- [x] `learn-recap` scale-shock beat: static SVG of the 340-param net vs GPT-3
       at true relative area (Bbycroft's move).
-- [ ] Optional polish: one-line links from `embed.mdx` / `alignment.mdx` /
+- [x] Optional polish: one-line links from `embed.mdx` / `alignment.mdx` /
       `training-reasoning.mdx` "learned" mentions to the foundations track
       (small edits to shared scenes — allowed, additive).
 

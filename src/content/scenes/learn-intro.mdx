@@ -1,0 +1,31 @@
+---
+title: "Every other tab says 'learned.' This one shows you the machine."
+subtitle: "Vectors are learned. Attention patterns are learned. Alignment is learned. Here's what that word actually means — starting with two numbers."
+kind: unique
+concepts: ["training", "parameters", "learning"]
+---
+
+Walk any track on this site and the same word keeps doing all the heavy
+lifting. Embeddings? *Learned.* What each attention head looks for? *Learned.*
+Why a chat model is polite? *Learned.* It's the most load-bearing word in AI —
+and so far we've treated it as magic.
+
+It isn't magic. It's a **loop** — and a surprisingly simple one:
+
+1. **Guess.** Push an example through the model.
+2. **Measure.** Score how wrong the guess was, as a single number.
+3. **Assign blame.** Work out how much each knob inside contributed to the miss.
+4. **Nudge.** Turn every knob a tiny bit in the direction that helps.
+5. Repeat, a few billion times.
+
+That's it. That loop — gradient descent with backpropagation — trained the
+model you talked to this morning.
+
+The best part: it's small enough to *watch*. In this track your browser will
+train real neural networks, live, in front of you — no video, no simulation, no
+downloads. The same math that runs on 10,000 GPUs, running on a few hundred
+numbers right here.
+
+> We'll build up: one **neuron**, then a **network**, then **loss**, then the
+> famous ball rolling downhill, then blame flowing backwards — and then you'll
+> watch the whole loop run at full speed.
