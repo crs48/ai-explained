@@ -550,7 +550,7 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
       (TransformerLens) to replace curated JSON with generated data.
 
 **Phase 3 — resume roadmap**
-- [ ] Open the Embeddings/RAG exploration (0004 Phase 3), now benefiting from
+- [x] Open the Embeddings/RAG exploration (0004 Phase 3), now benefiting from
       shared `loss`/`gradient-descent` scenes.
 
 ## Validation Checklist
