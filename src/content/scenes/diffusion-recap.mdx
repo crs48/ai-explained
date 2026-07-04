@@ -1,0 +1,25 @@
+---
+title: "Recap — same front end, different engine"
+subtitle: "You just learned a whole new family of AI — and half of it was already familiar."
+kind: shared
+concepts: ["recap", "shared architecture"]
+---
+
+Step back and notice what happened. To generate an image, the model:
+
+1. **Tokenized** your prompt — *same as an LLM.*
+2. **Embedded** the tokens into vectors — *same as an LLM.*
+3. Ran them through a **Transformer** text encoder — *same as an LLM.*
+4. Then switched engines entirely: compress to a **latent**, **denoise** from noise
+   over many steps, steered by **cross-attention** and dialed in with **guidance**,
+   and finally **decode** to pixels.
+
+That's the whole idea of this site. Every model shares a spine; each one swaps in
+its own distinctive core. A **chat** model adds alignment. A **reasoning** model
+adds a thinking loop. A **diffusion** model replaces next-token prediction with
+iterative denoising.
+
+Next stops on the map: **embeddings & retrieval**, **mixture-of-experts**,
+**vision-language models**, and eventually **video** — which is just this
+diffusion engine with a time axis added. Switch tracks up top and watch the
+familiar parts light up.

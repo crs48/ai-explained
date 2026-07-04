@@ -1,0 +1,19 @@
+{
+  "title": "Image Diffusion",
+  "family": "diffusion",
+  "order": 3,
+  "tagline": "How a text prompt becomes a picture — by sculpting it out of noise.",
+  "available": true,
+  "path": [
+    { "scene": "diffusion-intro" },
+    { "scene": "tokenize" },
+    { "scene": "embed" },
+    { "scene": "text-encoder" },
+    { "scene": "latent-space" },
+    { "scene": "denoising", "highlight": true },
+    { "scene": "denoiser-net" },
+    { "scene": "cross-attention" },
+    { "scene": "guidance" },
+    { "scene": "diffusion-recap" }
+  ]
+}

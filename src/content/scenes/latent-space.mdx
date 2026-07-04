@@ -1,0 +1,22 @@
+---
+title: "Step 4 — Into the latent space"
+subtitle: "Denoising a full-resolution image would be painfully slow. So the model works in a compressed space instead."
+kind: unique
+component: LatentSpace
+concepts: ["VAE", "latent diffusion", "compression"]
+---
+
+A 512×512 color image is **786,432 numbers**. Running dozens of denoising passes
+directly on that many pixels would be brutally expensive.
+
+The trick that made Stable Diffusion practical is **latent diffusion**: a
+**variational autoencoder (VAE)** compresses the image into a tiny **64×64×4**
+grid — just **16,384 numbers**, about **48× smaller**. All the denoising happens
+in *that* little space. Only at the very end does a VAE **decoder** blow the
+finished latent back up into full pixels.
+
+Watch the encode/decode in the panel. The whole expensive loop we're about to
+build runs on the small block in the middle — that's the entire reason a modern
+image model can run in seconds instead of minutes.
+
+(Newer models like SD3 and FLUX use a richer 16‑channel latent for more detail.)

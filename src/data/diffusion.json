@@ -1,0 +1,18 @@
+{
+  "note": "Curated, illustrative data for the Image Diffusion track. The cross-attention region masks are hand-authored (not extracted from a real model) and labeled as such in the UI.",
+  "crossAttention": {
+    "prompt": "a red balloon in the sky above green hills",
+    "words": [
+      { "word": "red", "region": "balloon" },
+      { "word": "balloon", "region": "balloon" },
+      { "word": "sky", "region": "sky" },
+      { "word": "green", "region": "hills" },
+      { "word": "hills", "region": "hills" }
+    ],
+    "regions": {
+      "balloon": { "type": "ellipse", "cx": 50, "cy": 33, "rx": 15, "ry": 18 },
+      "sky": { "type": "rect", "x": 0, "y": 0, "w": 100, "h": 62 },
+      "hills": { "type": "rect", "x": 0, "y": 62, "w": 100, "h": 38 }
+    }
+  }
+}

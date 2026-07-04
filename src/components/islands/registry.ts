@@ -15,6 +15,12 @@ export const ISLAND_KEYS = [
   "EffortDial",
   "FaithfulnessCaveat",
   "LiveModel",
+  "Alignment",
+  "DenoiseScrubber",
+  "LatentSpace",
+  "CrossAttention",
+  "GuidanceScale",
+  "DenoiserToggle",
 ] as const;
 
 export type IslandKey = (typeof ISLAND_KEYS)[number];

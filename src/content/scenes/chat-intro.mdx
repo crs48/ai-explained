@@ -1,0 +1,19 @@
+---
+title: "A chat model is a tamed autocomplete"
+subtitle: "ChatGPT and friends are next-token machines — the same spine as every LLM — plus a training pass that turns raw autocomplete into a helpful assistant."
+kind: shared
+concepts: ["chat model", "assistant"]
+---
+
+The assistant you chat with is, at its core, the **same next-token prediction
+machine** as any language model. Given the conversation so far, it predicts the
+next token, appends it, and repeats.
+
+So we'll walk the shared spine every LLM uses — **tokenize → embed → attention →
+sample** — the exact steps you'd see in the Reasoning track (they're dimmed in the
+rail because they're familiar). Then we'll add the **one thing that makes it a
+chat model**: the post-training that turns a raw text-completer into something
+helpful, harmless, and honest.
+
+Scroll on — and if you've already done the Reasoning track, notice how much is the
+same.

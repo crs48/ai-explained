@@ -1,0 +1,24 @@
+---
+title: "Step 3 — The text encoder"
+subtitle: "Your prompt runs through a Transformer — the same self-attention as an LLM — but its output steers an image instead of predicting a word."
+kind: shared
+component: AttentionHeatmap
+concepts: ["CLIP", "text encoder", "conditioning"]
+---
+
+The prompt you just tokenized and embedded now flows through a **Transformer text
+encoder**. In Stable Diffusion that's **CLIP**; newer models (SD3, FLUX) add a
+big **T5** encoder too.
+
+It's the *same self-attention* you met in the LLM track — tokens looking at each
+other to build context‑aware meaning. (The panel shows attention on an example
+sentence; a prompt works exactly the same way.) The one difference is what comes
+out the end: instead of a probability over the next word, the encoder produces a
+sequence of **conditioning vectors** — a compact "meaning of your prompt" that the
+image engine will follow at every step.
+
+For SD 1.5 that's **77 vectors, each 768 numbers**. Hold onto them — in a few
+steps they'll reach into the image through **cross-attention**.
+
+Now we leave familiar territory. The next steps are the image engine — and
+they're nothing like predicting a token.

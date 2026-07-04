@@ -1,0 +1,28 @@
+---
+title: "Step 5 — Denoising"
+subtitle: "The heart of it: start from pure noise and remove a little at a time until an image emerges."
+kind: unique
+component: DenoiseScrubber
+concepts: ["denoising", "DDPM", "DDIM", "schedulers", "steps"]
+---
+
+This is the signature move of a diffusion model — and the payoff of the whole
+track. Grab the slider in the panel and drag from noise to image, or hit
+**Denoise ▶**.
+
+During **training**, the model learns by doing the opposite: take a real image,
+add noise step by step until it's pure static, and learn to **predict the noise**
+that was added. At **generation** time you run that in reverse — start from random
+noise and, step by step, predict-and-subtract the noise until a clean image is
+left.
+
+How many steps? That's the **scheduler**:
+
+- **DDPM** — the original, up to ~1000 stochastic steps.
+- **DDIM** and modern schedulers — deterministic, great quality in **20–50** steps.
+- **LCM / Turbo** — distilled for **1–4** steps: watch the tradeoff in the panel,
+  fast but a little rougher.
+
+Every step needs one thing to know *what* to remove — and that's where your prompt
+comes back in. Two questions remain: what network does the predicting, and how do
+your words steer it?

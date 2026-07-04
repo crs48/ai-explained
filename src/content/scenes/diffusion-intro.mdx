@@ -1,0 +1,26 @@
+---
+title: "An image model paints with noise"
+subtitle: "A text-to-image model doesn't predict the next word — it starts from pure static and sculpts a picture out of it. But it begins exactly like an LLM: by reading your prompt."
+kind: shared
+concepts: ["diffusion", "text-to-image"]
+---
+
+Stable Diffusion, DALL·E, Midjourney, FLUX — they all do something that sounds
+impossible: they turn a sentence into a picture by **starting from random noise
+and repeatedly cleaning it up** until an image appears.
+
+Here's the pleasant surprise, and the reason this track lives next to the LLM
+ones: **the front end is identical.** Your prompt gets **tokenized** and
+**embedded** and run through a **Transformer** — the exact same components you
+saw in the Reasoning track. That's the shared spine.
+
+Then it hands off to a completely different engine:
+
+1. Compress the target into a small **latent space** (for speed).
+2. Start from **noise** and **denoise** it, step by step.
+3. Steer every step with your words, via **cross-attention**.
+4. Decode the cleaned-up latent back into pixels.
+
+Scroll on. The familiar steps are dimmed in the rail up top; the new,
+diffusion-only steps are highlighted. Let's start where every model starts — with
+the prompt.

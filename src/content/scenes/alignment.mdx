@@ -1,0 +1,31 @@
+---
+title: "Step 5 — From autocomplete to assistant"
+subtitle: "A raw language model just continues text. Two extra training stages turn it into the helpful assistant you actually talk to."
+kind: unique
+component: Alignment
+concepts: ["instruction tuning", "SFT", "RLHF", "alignment"]
+---
+
+Everything up to here — tokenize, embed, attention, sample — describes a
+**pretrained** model. And a pretrained model has a surprising flaw: it doesn't
+answer questions. It only **continues text**. Ask it "How do I make pizza?" and it
+might reply with more questions, because that's a plausible continuation.
+
+Flip through the stages in the panel to see the same model become an assistant:
+
+- **Base (pretrained):** trained only to predict the next token on the whole
+  internet. It autocompletes — it doesn't follow instructions.
+- **+ Instruction tuning (SFT):** fine-tune on many curated *instruction →
+  good response* examples. Now it learns the assistant format and actually does
+  what's asked.
+- **+ RLHF:** humans **rank** competing responses; a **reward model** learns
+  their preferences; the model is then optimized (PPO, or newer methods like DPO)
+  to produce responses people prefer. This is what makes it feel **helpful,
+  harmless, and honest**.
+
+Try the **"you be the labeler"** step — picking the better of two answers is
+exactly the human-preference signal RLHF is built from.
+
+That's the whole Chat LLM: the shared spine you already know, plus these two
+post-training stages. A **reasoning model** goes one step further — it adds the
+long thinking loop from the Reasoning track.

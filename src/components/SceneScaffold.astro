@@ -28,7 +28,7 @@ const { id, title, subtitle, kind, index, highlight = false, hasGraphic = true }
       <div class="scene-head">
         <span class:list={["kind", kind, { highlight }]}>
           <span class="dot" aria-hidden="true"></span>
-          {highlight ? "the one thing reasoning adds" : kind === "unique" ? "unique to this model" : "shared step"}
+          {highlight ? "the one thing this model adds" : kind === "unique" ? "unique to this model" : "shared step"}
           {index > 0 && <span class="idx">· step {index}</span>}
         </span>
         <h2 id={`h-${id}`}>{title}</h2>

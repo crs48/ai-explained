@@ -1,0 +1,27 @@
+---
+title: "Step 7 — Cross-attention: words steer pixels"
+subtitle: "This is how your prompt actually reaches into the image — and it's the same attention you already know, crossing from text to pixels."
+kind: unique
+component: CrossAttention
+concepts: ["cross-attention", "conditioning", "queries keys values"]
+---
+
+Remember those conditioning vectors from the text encoder? Here's where they do
+their job. At every denoising step, the image talks to your prompt through
+**cross-attention**.
+
+In the LLM track, self-attention had tokens attending to *other tokens* — Queries,
+Keys, and Values all came from one sequence. **Cross-attention is the same math**
+(Q·Kᵀ → softmax → weighted V) with one twist:
+
+- the **image latent** provides the **Queries** ("what should this region look
+  like?"), and
+- the **text embeddings** provide the **Keys and Values** ("here's what the words
+  mean").
+
+So each patch of the image "looks up" which words are relevant and pulls in their
+meaning. Hover the prompt words in the panel: **"balloon"** lights up the balloon,
+**"hills"** the hills. (The regions here are illustrative, but this is genuinely
+how the prompt controls *where* things go.)
+
+One knob remains: how *hard* the model should listen to your prompt.

@@ -14,6 +14,12 @@ import StrategyMorpher from "./islands/StrategyMorpher";
 import EffortDial from "./islands/EffortDial";
 import FaithfulnessCaveat from "./islands/FaithfulnessCaveat";
 import LiveModel from "./islands/LiveModel";
+import Alignment from "./islands/Alignment";
+import DenoiseScrubber from "./islands/DenoiseScrubber";
+import LatentSpace from "./islands/LatentSpace";
+import CrossAttention from "./islands/CrossAttention";
+import GuidanceScale from "./islands/GuidanceScale";
+import DenoiserToggle from "./islands/DenoiserToggle";
 
 interface Props {
   component: string;
@@ -33,3 +39,9 @@ const { component } = Astro.props;
 {component === "EffortDial" && <EffortDial client:visible />}
 {component === "FaithfulnessCaveat" && <FaithfulnessCaveat client:visible />}
 {component === "LiveModel" && <LiveModel client:visible />}
+{component === "Alignment" && <Alignment client:visible />}
+{component === "DenoiseScrubber" && <DenoiseScrubber client:visible />}
+{component === "LatentSpace" && <LatentSpace client:visible />}
+{component === "CrossAttention" && <CrossAttention client:visible />}
+{component === "GuidanceScale" && <GuidanceScale client:visible />}
+{component === "DenoiserToggle" && <DenoiserToggle client:visible />}

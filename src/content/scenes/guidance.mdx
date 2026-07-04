@@ -1,0 +1,29 @@
+---
+title: "Step 8 — Guidance"
+subtitle: "How strongly should the image obey your prompt? That's a single dial — classifier-free guidance."
+kind: unique
+component: GuidanceScale
+concepts: ["classifier-free guidance", "CFG", "guidance scale", "negative prompt"]
+---
+
+At each step the model actually predicts the noise **twice**: once **with** your
+prompt (conditional) and once with an **empty** prompt (unconditional). Then it
+**extrapolates** between them:
+
+> ε = ε_uncond + **w** · (ε_cond − ε_uncond)
+
+That **w** is the **guidance scale**, and it's the single most important knob you
+touch as a user. Drag it in the panel:
+
+- **w = 0** — ignores your prompt entirely.
+- **w = 1** — follows it, softly.
+- **w ≈ 7** — the usual sweet spot: strong adherence, still natural.
+- **w ≈ 20** — over-cooked: rigid, oversaturated, fewer surprises.
+
+A **negative prompt** is the same trick, aimed backwards: swap the "empty" branch
+for things you *don't* want ("blurry, extra fingers"), and the image is actively
+pushed away from them.
+
+And that's a text-to-image model, end to end: **the same tokenize → embed →
+Transformer front end as an LLM**, handed to a different engine that denoises a
+compressed image, steered by your words.

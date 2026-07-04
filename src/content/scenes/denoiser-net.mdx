@@ -1,0 +1,23 @@
+---
+title: "Step 6 — The denoiser: U-Net or Transformer"
+subtitle: "What actually predicts the noise at each step? One of two architectures — and one of them is the LLM's engine again."
+kind: unique
+component: DenoiserToggle
+concepts: ["U-Net", "DiT", "MMDiT", "adaLN"]
+---
+
+At every denoising step, one network does the work: it takes the **noisy latent**,
+the **timestep** (how far along we are), and the **text conditioning**, and
+predicts the noise to remove. Toggle between the two designs in the panel:
+
+- **U-Net** (Stable Diffusion 1.x/2.x, SDXL): a convolutional encoder–decoder
+  with **skip connections** — it shrinks the latent down to capture the big
+  picture, then builds it back up with fine detail, ResNet and attention blocks
+  throughout.
+- **DiT / MMDiT** (SD3, PixArt, FLUX): **chop the latent into patches, treat them
+  as tokens, and run Transformer blocks** — literally the same engine as an LLM,
+  repurposed. The timestep is injected by adaptively scaling each layer (adaLN).
+
+The field is steadily moving from U-Nets toward Transformers, for the same reason
+LLMs did: they scale beautifully. Either way, the *steering* comes from your
+prompt — next.
