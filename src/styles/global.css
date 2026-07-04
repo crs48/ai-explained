@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+ * Color grammar (from docs/explorations/0001 + 0002):
+ *   ink / surface   → page + panel backgrounds
+ *   data (blue)     → activations / values flowing through the network
+ *   weight (amber)  → learned parameters
+ *   shared (teal)   → scenes reused across model tracks
+ *   unique (magenta)→ a track's one distinctive "core swap" (e.g. the CoT loop)
+ */
+@theme {
+  --color-ink: #0b1020;
+  --color-surface: #121a2e;
+  --color-surface-2: #1b2540;
+  --color-line: #2a3556;
+  --color-fg: #e8ecf7;
+  --color-muted: #93a0c4;
+
+  --color-data-400: #5aa9ff;
+  --color-data-500: #2f7ff0;
+  --color-weight-400: #ffcb6b;
+  --color-weight-500: #f5a623;
+  --color-shared-400: #37d9c3;
+  --color-shared-500: #14b8a6;
+  --color-unique-400: #ff6bb3;
+  --color-unique-500: #ec4899;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(47, 127, 240, 0.12), transparent 60%),
+    radial-gradient(900px 700px at -10% 20%, rgba(236, 72, 153, 0.08), transparent 55%),
+    var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect reduced-motion globally; islands also gate JS animation on this. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Visible focus for keyboard users on every interactive element. */
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-data-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Narration prose (MDX body inside a scene). */
+.prose {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--color-fg) 90%, var(--color-muted));
+}
+.prose > * + * {
+  margin-top: 1rem;
+}
+.prose p {
+  max-width: 40rem;
+}
+.prose strong {
+  color: var(--color-fg);
+  font-weight: 650;
+}
+.prose a {
+  color: var(--color-data-400);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose h3 {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 650;
+  color: var(--color-fg);
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  max-width: 40rem;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: 0.35rem;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-surface-2);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--color-line);
+}
+.prose blockquote {
+  border-left: 3px solid var(--color-unique-500);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+.prose .footnote {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+

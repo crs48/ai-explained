@@ -1,0 +1,102 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+
+const tracks = (await getCollection("tracks")).sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL;
+const join = (id: string) => `${base}${base.endsWith("/") ? "" : "/"}${id}`;
+---
+
+<nav class="track-tabs" aria-label="Model tracks">
+  <div class="brand">
+    <span class="logo" aria-hidden="true"></span>
+    <a href={base} class="brand-name">AI&nbsp;Explained</a>
+  </div>
+  <div class="tabs">
+    {
+      tracks.map((t) =>
+        t.data.available ? (
+          <a
+            href={join(t.id)}
+            aria-current={t.id === current ? "page" : undefined}
+            class:list={["tab", { active: t.id === current }]}
+          >
+            {t.data.title}
+          </a>
+        ) : (
+          <span class="tab disabled" title="Coming soon">
+            {t.data.title}
+            <em>soon</em>
+          </span>
+        ),
+      )
+    }
+  </div>
+</nav>
+
+<style>
+  .track-tabs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+  }
+  .logo {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--color-unique-500);
+    background: radial-gradient(circle at 50% 50%, var(--color-shared-500) 0 30%, transparent 32%);
+  }
+  .brand-name {
+    color: var(--color-fg);
+  }
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  .tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    border: 1px solid transparent;
+  }
+  .tab.active {
+    color: var(--color-fg);
+    background: var(--color-surface-2);
+    border-color: var(--color-line);
+  }
+  .tab:not(.disabled):hover {
+    color: var(--color-fg);
+  }
+  .tab.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .tab em {
+    font-style: normal;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--color-line);
+    color: var(--color-fg);
+    padding: 0.05rem 0.3rem;
+    border-radius: 4px;
+  }
+</style>

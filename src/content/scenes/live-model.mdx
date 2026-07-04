@@ -1,0 +1,24 @@
+---
+title: "Bonus — run a real model yourself"
+subtitle: "Everything so far used a fixed example. Now load an actual GPT-2 and watch it predict, live, in your browser."
+kind: shared
+component: LiveModel
+concepts: ["transformers.js", "in-browser inference"]
+---
+
+You've now seen the whole pipeline — tokenize, embed, attention, sample — and the
+extra loop that makes a reasoning model reason. Time to see the real thing.
+
+Click **Load GPT-2** in the panel and a genuine **124-million-parameter** model
+downloads into your browser (about 100&nbsp;MB, cached after the first time) and
+runs entirely on your machine — no server, nothing sent anywhere. Then type a
+prompt and watch it generate.
+
+GPT-2 is small and from 2019, so its output is charmingly rough compared to a
+frontier model. But it's the *same architecture* you just learned, running for
+real — every token it emits is the exact tokenize → embed → attention → sample
+loop, one step at a time.
+
+That's the shared spine every model in this series is built on. From here, other
+tracks — chat, mixture-of-experts, image and video diffusion, and more — swap in
+their one distinctive piece. Same familiar parts; one new idea at a time.

@@ -1,0 +1,28 @@
+---
+title: "Step 6 — Thinking longer pays off"
+subtitle: "Spend more compute at inference time — not just training time — and accuracy climbs."
+kind: unique
+component: TestTimeScaling
+concepts: ["test-time compute", "inference scaling", "verifier"]
+---
+
+The breakthrough behind reasoning models is **test-time compute scaling**: you can
+make a model better not only by training it more, but by letting it **think for
+longer when you ask it a question**.
+
+OpenAI's o1 showed this follows a clean **log-linear** curve — accuracy rises
+roughly *linearly* as you spend *exponentially* more thinking compute. Drag the
+budget slider in the panel to move up the curve.
+
+The most striking demonstration is open: **DeepSeek-R1-Zero**, trained with pure
+reinforcement learning, climbed from **15.6% to 71.0%** on the AIME 2024 math
+competition — and it did so by *learning on its own to write longer and longer
+reasoning*.
+
+> One honest caveat, worth toggling: this clean scaling depends on having a
+> **verifier** — some way to check whether an answer is actually right (a math
+> checker, a code test). Turn the verifier off and the gains get murky. That's
+> why math and code drove the first reasoning models.
+
+So the model needs to generate a long chain of thought — and *keep reading its own
+thoughts as it goes*. Let's look at that loop directly.

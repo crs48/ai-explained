@@ -1,0 +1,22 @@
+{
+  "title": "Reasoning LLM",
+  "family": "reasoning",
+  "order": 1,
+  "tagline": "How a model that 'thinks before it answers' actually works.",
+  "available": true,
+  "path": [
+    { "scene": "intro" },
+    { "scene": "tokenize" },
+    { "scene": "embed" },
+    { "scene": "transformer-block" },
+    { "scene": "sample" },
+    { "scene": "cot" },
+    { "scene": "test-time-scaling" },
+    { "scene": "self-recursion", "highlight": true },
+    { "scene": "training-reasoning" },
+    { "scene": "strategy-zoo" },
+    { "scene": "reasoning-effort" },
+    { "scene": "faithfulness" },
+    { "scene": "live-model" }
+  ]
+}

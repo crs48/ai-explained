@@ -1,0 +1,28 @@
+---
+title: "Step 2 — Embed"
+subtitle: "Each token becomes a vector — a point in space where meaning lives in directions."
+kind: shared
+component: EmbeddingSpace
+concepts: ["embeddings", "vectors", "semantic similarity"]
+---
+
+A bare token ID like `2746` means nothing on its own. So the model looks it up in
+a giant table and swaps it for a long list of numbers — a **vector**. For GPT-2
+small that's **768 numbers** per token; modern models use thousands.
+
+These vectors are *learned*. Tokens used in similar contexts end up **near each
+other** in this space, so distance and direction encode meaning. In the panel,
+each dot is a word; click one to light up its **nearest neighbors** — `dog` sits
+by `puppy` and `kitten`, far from `algorithm`.
+
+Because meaning lives in *directions*, you can sometimes do arithmetic on words.
+Toggle the analogy: **king − man + woman** lands right on **queen**.
+
+> Honest asterisk: this famous example is hand-picked. It only works cleanly when
+> you exclude the input words, and it describes static word vectors — a real LLM's
+> internal representations are contextual and messier. It's a beautiful *hint*
+> that meaning is geometric, not a hard law.
+
+One thing embeddings *don't* carry yet is **order** — "dog bites man" and "man
+bites dog" would look the same. Models fix that by adding **positional
+information** to each vector before the next step.

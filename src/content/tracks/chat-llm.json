@@ -1,0 +1,14 @@
+{
+  "title": "Chat LLM",
+  "family": "language",
+  "order": 2,
+  "tagline": "The everyday assistant — the shared spine, before the reasoning loop.",
+  "available": false,
+  "path": [
+    { "scene": "intro" },
+    { "scene": "tokenize" },
+    { "scene": "embed" },
+    { "scene": "transformer-block" },
+    { "scene": "sample" }
+  ]
+}

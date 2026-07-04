@@ -1,0 +1,32 @@
+---
+title: "Step 3 — Attention"
+subtitle: "Each token looks at the others and pulls in the context it needs. This is the engine, repeated dozens of times."
+kind: shared
+component: AttentionHeatmap
+concepts: ["self-attention", "query key value", "causal mask", "multi-head"]
+---
+
+To understand a word you need context. In *"The animal didn't cross the street
+because **it** was too tired,"* what does "it" refer to? **Self-attention** lets
+each token look at the other tokens and decide how much to pull from each.
+
+Mechanically, every token produces three vectors: a **Query** ("what am I looking
+for?"), a **Key** ("what do I offer?"), and a **Value** ("what I'll hand over").
+A token's query is compared against every key; the scores go through a **softmax**
+into weights that sum to 1; the output is that weighted blend of Values.
+
+Do it for every pair and you get the **attention matrix** in the panel — row *i*
+is how much token *i* attends to each other token. Notice the greyed
+**upper triangle**: a token may only look **backward**, never at words it hasn't
+generated yet. That causal mask is what makes the model a left-to-right
+predictor. Hover any cell to read the weight.
+
+Two things to keep in mind as we simplify:
+
+- Real models run **many attention heads in parallel** (GPT-2 small: 12), each
+  learning a different kind of relationship, plus a **feed-forward** layer where a
+  lot of the model's stored knowledge lives.
+- This whole block is **stacked many times** (12 in GPT-2 small; 80+ in frontier
+  models). The token's vector gets refined at every layer.
+
+After the last block, the model is ready to turn that vector back into a word.

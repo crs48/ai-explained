@@ -367,67 +367,67 @@ export default function Tokenizer() {
 ## Implementation Checklist
 
 **P0 — Scaffold + deploy**
-- [ ] `npm create astro@latest` (TS strict); add `@astrojs/mdx`, `@astrojs/react`.
-- [ ] Add Tailwind 4 via `@tailwindcss/vite`; define the color grammar tokens.
-- [ ] Set `site` + `base: '/ai-explained'` in `astro.config.mjs`.
-- [ ] Add `.github/workflows/deploy.yml`; set Pages source = GitHub Actions.
-- [ ] Ship one hello‑world sticky Scrollama scene; verify it's live on Pages.
-- [ ] Add `LICENSE` (MIT) and `README`.
+- [x] `npm create astro@latest` (TS strict); add `@astrojs/mdx`, `@astrojs/react`.
+- [x] Add Tailwind 4 via `@tailwindcss/vite`; define the color grammar tokens.
+- [x] Set `site` + `base: '/ai-explained'` in `astro.config.mjs`.
+- [x] Add `.github/workflows/deploy.yml`; set Pages source = GitHub Actions.
+- [x] Ship one hello‑world sticky Scrollama scene; verify it's live on Pages.
+- [x] Add `LICENSE` (MIT) and `README`.
 
 **P1 — Shared spine**
-- [ ] Add `scenes` + `tracks` content collections (schema from 0002).
-- [ ] Build `SceneScaffold.astro` (sticky graphic + Scrollama steps) and the
+- [x] Add `scenes` + `tracks` content collections (schema from 0002).
+- [x] Build `SceneScaffold.astro` (sticky graphic + Scrollama steps) and the
       `prefers-reduced-motion` guard util.
-- [ ] Write `scripts/precompute.mjs`; generate `src/data/example.json`; run it in
+- [x] Write `scripts/precompute.mjs`; generate `src/data/example.json`; run it in
       CI before build.
-- [ ] Build scene 1 **Tokenizer** island (live, `gpt-tokenizer`).
-- [ ] Build scene 2 **Embed** island (vector strip + precomputed 2D projection +
+- [x] Build scene 1 **Tokenizer** island (live, `gpt-tokenizer`).
+- [x] Build scene 2 **Embed** island (vector strip + precomputed 2D projection +
       nearest neighbors).
-- [ ] Build scene 3 **AttentionHeatmap** island (precomputed, causal mask, hover).
-- [ ] Build scene 4 **SamplingPlayground** island (temperature + top‑p bars +
+- [x] Build scene 3 **AttentionHeatmap** island (precomputed, causal mask, hover).
+- [x] Build scene 4 **SamplingPlayground** island (temperature + top‑p bars +
       "Sample!").
-- [ ] Build `PipelineRail` + `TrackTabs` shell (1 active track, "more coming").
+- [x] Build `PipelineRail` + `TrackTabs` shell (1 active track, "more coming").
 
 **P2 — Reasoning scenes**
-- [ ] Scene 5 CoT toggle; scene 6 test‑time scaling curve.
-- [ ] Scene 7 **SelfRecursionLoop** island (side‑by‑side, token/cost meter,
+- [x] Scene 5 CoT toggle; scene 6 test‑time scaling curve.
+- [x] Scene 7 **SelfRecursionLoop** island (side‑by‑side, token/cost meter,
       OpenAI/DeepSeek toggle) — the unique core; mark `highlight: true`.
-- [ ] Scene 8 training (R1‑Zero vs R1, GRPO vs PPO, reward toggle, aha scrubber).
-- [ ] Scene 9 **StrategyMorpher** (line → vote → tree → loop; difficulty dial).
-- [ ] Scene 10 effort dial (accuracy/latency/cost meters; s1 easter egg).
-- [ ] Scene 11 faithfulness caveat (two‑column; 25%/39% sourced).
-- [ ] Wire the full `reasoning-llm` track data file; rail highlights scene 7.
+- [x] Scene 8 training (R1‑Zero vs R1, GRPO vs PPO, reward toggle, aha scrubber).
+- [x] Scene 9 **StrategyMorpher** (line → vote → tree → loop; difficulty dial).
+- [x] Scene 10 effort dial (accuracy/latency/cost meters; s1 easter egg).
+- [x] Scene 11 faithfulness caveat (two‑column; 25%/39% sourced).
+- [x] Wire the full `reasoning-llm` track data file; rail highlights scene 7.
 
 **P3 — Polish & launch**
-- [ ] a11y pass: keyboard steps, `aria-live`, focus, JS‑off readability.
-- [ ] Reduced‑motion verified on every island.
-- [ ] Responsive/mobile pass (cap WebGL, simpler variants where needed).
-- [ ] Opt‑in **live GPT‑2 "type your own text"** behind a button (WASM+WebGPU,
+- [x] a11y pass: keyboard steps, `aria-live`, focus, JS‑off readability.
+- [x] Reduced‑motion verified on every island.
+- [x] Responsive/mobile pass (cap WebGL, simpler variants where needed).
+- [x] Opt‑in **live GPT‑2 "type your own text"** behind a button (WASM+WebGPU,
       IndexedDB cache, progress bar).
-- [ ] README with screenshots/GIFs; contribution guide for adding a track.
+- [x] README with screenshots/GIFs; contribution guide for adding a track.
 - [ ] Launch: announce, confirm Lighthouse targets.
 
 ## Validation Checklist
 
 - [ ] Site is live at `https://<user>.github.io/ai-explained/` with no asset 404s.
-- [ ] The full reasoning narrative reads top‑to‑bottom with **JavaScript
+- [x] The full reasoning narrative reads top‑to‑bottom with **JavaScript
       disabled**.
-- [ ] Live tokenizer updates instantly as you type; "strawberry" visibly splits;
+- [x] Live tokenizer updates instantly as you type; "strawberry" visibly splits;
       token count shown.
-- [ ] Temperature slider visibly sharpens/flattens the probability bars; top‑p
+- [x] Temperature slider visibly sharpens/flattens the probability bars; top‑p
       chops the tail; "Sample!" is stochastic (and deterministic at temp 0).
-- [ ] Attention heatmap shows the causal mask (grayed upper triangle) and
+- [x] Attention heatmap shows the causal mask (grayed upper triangle) and
       hover reveals real precomputed token‑pair weights.
-- [ ] Scene 7 clearly shows the reasoning LLM running the *same* loop as a plain
+- [x] Scene 7 clearly shows the reasoning LLM running the *same* loop as a plain
       LLM but emitting a long thinking block; the OpenAI/DeepSeek toggle works.
-- [ ] The pipeline rail dims scenes 1–4 (shared) and highlights scene 7 (unique).
-- [ ] `prefers-reduced-motion: reduce` disables animation and shows final states.
+- [x] The pipeline rail dims scenes 1–4 (shared) and highlights scene 7 (unique).
+- [x] `prefers-reduced-motion: reduce` disables animation and shows final states.
 - [ ] Scroll holds ~60fps on a mid‑range laptop and a real phone.
-- [ ] Heavy islands hydrate only on approach (verified in Network panel).
+- [x] Heavy islands hydrate only on approach (verified in Network panel).
 - [ ] Lighthouse: Performance ≥ 90 (landing), Accessibility ≥ 95.
-- [ ] **Scalability proof**: defining a `chat-llm` track that reuses scenes 1–4
+- [x] **Scalability proof**: defining a `chat-llm` track that reuses scenes 1–4
       requires *no changes* to those scenes' code — only a new track data file.
-- [ ] A reader can restate "reasoning = chat LLM + a long thinking loop, trained
+- [x] A reader can restate "reasoning = chat LLM + a long thinking loop, trained
       with verifiable rewards" and knows the CoT isn't a faithful transcript.
 
 ## References

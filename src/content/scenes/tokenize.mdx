@@ -1,0 +1,30 @@
+---
+title: "Step 1 — Tokenize"
+subtitle: "The model never sees letters. Your text is first chopped into tokens."
+kind: shared
+component: Tokenizer
+concepts: ["byte-pair encoding", "tokens", "vocabulary"]
+---
+
+The model can't read characters the way you do. Before anything else, your text
+is split into **tokens** — chunks that are often whole words, sometimes
+word-pieces, sometimes single characters.
+
+This is done with **byte-pair encoding (BPE)**: start from raw bytes and
+repeatedly merge the most common adjacent pair into a new token. Frequent
+sequences like `" the"` become a single token; rare ones get fragmented.
+
+**Try it** → type in the panel. A few things worth discovering:
+
+- **"strawberry"** splits into pieces (`straw` + `berry`). The model never sees
+  the individual r's — which is exactly why *"how many R's in strawberry?"* is
+  weirdly hard for it. Counting letters isn't a native operation.
+- A **leading space is part of the token**: `" Paris"` and `"Paris"` are
+  different tokens.
+- Numbers, code, emoji, and other languages tokenize very differently. Toggle
+  **GPT-4 (~100k vocab)** vs **GPT-4o (~200k)** and watch the same text use fewer
+  tokens with the bigger vocabulary — that's cheaper and better at other
+  languages.
+
+Each token is really just an integer — its row number in the model's
+dictionary. That list of integers is the *only* thing the network receives.

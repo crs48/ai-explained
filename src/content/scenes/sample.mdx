@@ -1,0 +1,32 @@
+---
+title: "Step 4 — Sample the next token"
+subtitle: "The final vector becomes a probability for every token. How you pick from it is the temperature knob."
+kind: shared
+component: SamplingPlayground
+concepts: ["logits", "softmax", "temperature", "top-p", "autoregression"]
+---
+
+After the last block, the model takes the final token's vector and scores **every
+token in its vocabulary** — that's ~50,000 raw numbers called **logits**. A
+**softmax** squashes them into probabilities that sum to 100%. Now we have a
+genuine distribution: *"87% chance the next token is ` Paris`, 3% ` the`, …"*
+
+How do we actually pick one? That's what the controls in the panel do:
+
+- **Greedy** — always take the top token. Safe, but repetitive.
+- **Temperature** — rescales the logits. Drag it **down** and one bar dominates
+  (conservative, near-deterministic at 0). Drag it **up** and the bars flatten
+  (more diverse, riskier). Temperature 0 ≠ "more true" — just more predictable.
+- **Top-p (nucleus)** — keep only the smallest set of tokens whose probability
+  adds up to *p*, then sample from those. The struck-through bars are the tail
+  it's ignoring.
+
+Press **Sample!** a few times to feel the randomness — then set temperature to 0
+and watch it become deterministic.
+
+Then the crucial move: whatever token we pick gets **appended to the sequence**,
+and the whole pipeline runs *again* to produce the next one. This
+**autoregressive loop** — one token at a time — is how a whole paragraph gets
+written.
+
+**And it's exactly this loop that a reasoning model turns into something more.**

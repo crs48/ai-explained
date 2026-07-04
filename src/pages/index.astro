@@ -1,0 +1,10 @@
+---
+import { getEntry } from "astro:content";
+import TrackView from "../components/TrackView.astro";
+
+// The landing page renders the default track directly (fastest path to value).
+const track = await getEntry("tracks", "reasoning-llm");
+if (!track) throw new Error("Default track 'reasoning-llm' not found");
+---
+
+<TrackView track={track} />

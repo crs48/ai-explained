@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# editor / tooling
+.clj-kondo/
+.lsp/
+.vscode/
+.idea/
+.DS_Store
+
+# env / logs
+.env
+.env.*
+!.env.example
+npm-debug.log*
+*.log
+
+# model weight cache (precompute)
+.cache/
+
+# playwright / preview verification artifacts
+.playwright-mcp/
+/*.png
+

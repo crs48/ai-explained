@@ -1,0 +1,88 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TrackTabs from "./TrackTabs.astro";
+import PipelineRail from "./PipelineRail.tsx";
+import SceneScaffold from "./SceneScaffold.astro";
+import SceneGraphic from "./SceneGraphic.astro";
+import { isIslandKey } from "./islands/registry";
+
+interface Props {
+  track: CollectionEntry<"tracks">;
+}
+const { track } = Astro.props;
+
+const resolved = await Promise.all(
+  track.data.path.map(async (p, i) => {
+    const entry = await getEntry(p.scene);
+    if (!entry) throw new Error(`Track ${track.id} references missing scene`);
+    const { Content } = await render(entry);
+    const component = isIslandKey(entry.data.component) ? entry.data.component : null;
+    return { entry, Content, component, highlight: p.highlight, index: i };
+  }),
+);
+
+const rail = resolved.map(({ entry, highlight }) => ({
+  id: entry.id,
+  title: entry.data.title.replace(/^Step \d+ — /, "").replace(/^.*— /, ""),
+  kind: entry.data.kind,
+  highlight,
+}));
+---
+
+<BaseLayout title={`${track.data.title} — AI Explained`} description={track.data.tagline}>
+  <div slot="header" class="site-header">
+    <TrackTabs current={track.id} />
+    <div class="rail-wrap">
+      <PipelineRail client:load scenes={rail} />
+    </div>
+  </div>
+
+  {
+    resolved.map(({ entry, Content, component, highlight, index }) => (
+      <SceneScaffold
+        id={entry.id}
+        title={entry.data.title}
+        subtitle={entry.data.subtitle}
+        kind={entry.data.kind}
+        index={index}
+        highlight={highlight}
+        hasGraphic={!!component}
+      >
+        {component && <SceneGraphic slot="graphic" component={component} />}
+        <Content />
+      </SceneScaffold>
+    ))
+  }
+</BaseLayout>
+
+<script>
+  import scrollama from "scrollama";
+  const scroller = scrollama();
+  const setup = () =>
+    scroller.setup({ step: ".scene", offset: 0.55 }).onStepEnter(({ element }) => {
+      const id = (element as HTMLElement).dataset.sceneId;
+      if (id) document.dispatchEvent(new CustomEvent("scene:active", { detail: { id } }));
+    });
+  setup();
+  let t: number | undefined;
+  window.addEventListener("resize", () => {
+    window.clearTimeout(t);
+    t = window.setTimeout(() => scroller.resize(), 150);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(10px);
+    background: color-mix(in oklab, var(--color-ink) 82%, transparent);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rail-wrap {
+    border-top: 1px solid color-mix(in oklab, var(--color-line) 60%, transparent);
+  }
+</style>

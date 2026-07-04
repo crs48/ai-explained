@@ -1,0 +1,26 @@
+---
+title: "Step 10 — The effort knob"
+subtitle: "How much should it think? That's a dial you control — trading accuracy against time and cost."
+kind: unique
+component: EffortDial
+concepts: ["reasoning effort", "thinking budget", "latency", "cost"]
+---
+
+Thinking longer isn't free. More reasoning tokens mean **higher accuracy on hard
+problems**, but also **more latency** and **more cost**. So production reasoning
+models expose a **knob**:
+
+- OpenAI's `reasoning.effort` (`minimal` → `low` → `medium` → `high`)
+- Anthropic's extended-thinking **token budget**
+- Gemini's **thinking budget**
+
+Turn the dial in the panel and watch the three meters move together. There's no
+free lunch — you're choosing a point on the accuracy-vs-cost trade-off for each
+task.
+
+You can even **force** more thinking. The "s1" research showed that simply
+appending the word **"Wait…"** when the model tries to stop makes it think longer
+— and often catch a mistake. Try the button.
+
+One last thing before we finish: that reasoning trace the model shows you… can you
+actually trust it?
