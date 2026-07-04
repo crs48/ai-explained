@@ -424,27 +424,27 @@ function buildFrames(img: ImageData, steps: number): ImageData[] {
 ## Implementation Checklist
 
 **Phase 1 — Chat LLM (warm‑up)**
-- [ ] Author `src/content/scenes/alignment.mdx` (base → SFT → RLHF; why ChatGPT is
+- [x] Author `src/content/scenes/alignment.mdx` (base → SFT → RLHF; why ChatGPT is
       helpful/aligned), `kind: unique`.
-- [ ] Build a small `Alignment` island (side‑by‑side base‑vs‑aligned answer;
+- [x] Build a small `Alignment` island (side‑by‑side base‑vs‑aligned answer;
       optional "rank these two responses" like the human labeler) + register it.
-- [ ] Append `alignment` (`highlight: true`) to `chat-llm.json`; set
+- [x] Append `alignment` (`highlight: true`) to `chat-llm.json`; set
       `available: true`; give it a real `tagline`.
-- [ ] Verify `/chat-llm` builds and shares scenes 1–4 with no changes to them.
+- [x] Verify `/chat-llm` builds and shares scenes 1–4 with no changes to them.
 
 **Phase 2 — Image Diffusion (flagship)**
-- [ ] Author scenes: `diffusion-intro`, `text-encoder`, `latent-space`,
+- [x] Author scenes: `diffusion-intro`, `text-encoder`, `latent-space`,
       `denoising`, `denoiser-net`, `cross-attention`, `guidance`,
       `diffusion-recap` (reuse `tokenize`, `embed`).
-- [ ] Build islands: `DenoiseScrubber` (schematic canvas noise↔image + scheduler
+- [x] Build islands: `DenoiseScrubber` (schematic canvas noise↔image + scheduler
       toggle), `LatentSpace` (encode/decode animation + tensor‑shape labels),
       `CrossAttention` (prompt‑word → image‑region overlay), `GuidanceScale`
       (two‑arrow CFG + discrete w slider), `DenoiserToggle` (U‑Net ↔ DiT).
-- [ ] Register all new islands in `registry.ts` + `SceneGraphic.astro`.
-- [ ] Add `src/data/diffusion.json` (curated prompts, region masks, schedule
+- [x] Register all new islands in `registry.ts` + `SceneGraphic.astro`.
+- [x] Add `src/data/diffusion.json` (curated prompts, region masks, schedule
       curve, illustrative frame params).
-- [ ] Create `image-diffusion.json` track (path above; `denoising` highlighted).
-- [ ] Gate any animation on `prefers-reduced-motion`; keep SSR‑safe (read motion
+- [x] Create `image-diffusion.json` track (path above; `denoising` highlighted).
+- [x] Gate any animation on `prefers-reduced-motion`; keep SSR‑safe (read motion
       in `useEffect`, per the LLM islands).
 - [ ] (Optional) `scripts/gen-diffusion-frames.py` + a WebGPU "generate your own"
       island behind feature detection.
@@ -459,18 +459,18 @@ function buildFrames(img: ImageData, steps: number): ImageData[] {
 - [ ] The diffusion track reuses `tokenize` + `embed` with **no edits** to those
       scenes (reuse proven); the pipeline rail dims them (teal) and highlights
       `denoising` (magenta core).
-- [ ] The denoising scrubber morphs noise → image smoothly and works with
+- [x] The denoising scrubber morphs noise → image smoothly and works with
       JavaScript‑only enhancement (narration readable without JS).
-- [ ] Scheduler toggle changes the visible step count (DDPM/DDIM/LCM); guidance
+- [x] Scheduler toggle changes the visible step count (DDPM/DDIM/LCM); guidance
       slider changes the output at w ∈ {0,1,7,20}.
-- [ ] Cross‑attention overlay: selecting a prompt word highlights the intended
+- [x] Cross‑attention overlay: selecting a prompt word highlights the intended
       image region; labeled "illustrative."
 - [ ] Production console clean across all diffusion scenes; Lighthouse
       Performance ≥ 90 / Accessibility ≥ 95 maintained.
-- [ ] A reader can articulate: "the prompt uses the same tokenize→embed→transformer
+- [x] A reader can articulate: "the prompt uses the same tokenize→embed→transformer
       front‑end as an LLM, then a different engine denoises an image, steered by the
       words through cross‑attention."
-- [ ] Chat LLM: a reader can state "chat = base LLM + instruction tuning + RLHF."
+- [x] Chat LLM: a reader can state "chat = base LLM + instruction tuning + RLHF."
 
 ## References
 
