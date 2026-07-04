@@ -344,24 +344,24 @@ const gates = top.map(([i], j) => ({ expert: i, gate: exps[j] / sum }));
       `transformer-block`, `sample` untouched).
 - [x] Add `src/content/tracks/moe-llm.json` (order 4, `moe-swap` highlighted).
 - [x] Reduced-motion + SSR-safety on every new island (per repo conventions).
-- [ ] Verify locally (build + browser pass over all 10 scenes), then ship:
+- [x] Verify locally (build + browser pass over all 10 scenes), then ship:
       branch → PR → merge to `main` → deploy green.
 
 ## Validation Checklist
 
-- [ ] `astro build` emits `/moe-llm`; tab bar shows four live tracks.
-- [ ] The four reused scenes required **zero edits** (reuse proven again); rail
+- [x] `astro build` emits `/moe-llm`; tab bar shows four live tracks.
+- [x] The four reused scenes required **zero edits** (reuse proven again); rail
       dims them teal and highlights `moe-swap` magenta.
-- [ ] Dense↔MoE toggle visibly keeps attention untouched while the FFN forks.
-- [ ] TokenRouter: gates always sum to 1; top-2 arrows scale with gate weight;
+- [x] Dense↔MoE toggle visibly keeps attention untouched while the FFN forks.
+- [x] TokenRouter: gates always sum to 1; top-2 arrows scale with gate weight;
       the token-color reveal clusters by syntax, labeled illustrative.
-- [ ] ActiveParams: numbers match `moe.json` (spot-check Mixtral 46.7/12.9 and
+- [x] ActiveParams: numbers match `moe.json` (spot-check Mixtral 46.7/12.9 and
       DeepSeek 671/37); GPT-4 row carries the rumor badge.
-- [ ] LoadBalancer: "no balancing" visibly collapses to one expert; both fixes
+- [x] LoadBalancer: "no balancing" visibly collapses to one expert; both fixes
       restore balance.
-- [ ] Production console clean across all MoE scenes; Lighthouse on `/moe-llm`
+- [x] Production console clean across all MoE scenes; Lighthouse on `/moe-llm`
       ≥ 90 perf / ≥ 95 a11y.
-- [ ] A reader can restate: "MoE = the same transformer, but each block's FFN is
+- [x] A reader can restate: "MoE = the same transformer, but each block's FFN is
       replaced by a router picking a few experts — memory scales with total
       parameters, compute with active ones."
 
