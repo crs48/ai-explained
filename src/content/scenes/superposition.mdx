@@ -1,0 +1,40 @@
+---
+title: "Step 1 — Superposition: more ideas than room"
+subtitle: "Five concepts, two dimensions. Watch a real model decide to overlap them — live, in your browser."
+kind: unique
+component: SuperpositionToy
+concepts: ["superposition", "features", "polysemanticity", "sparsity"]
+---
+
+An early hope of interpretability was one neuron = one concept: find the "cat
+neuron," read the model like a labeled diagram. Reality refused. Single
+neurons routinely fire for *cats, and car grilles, and the number 7* —
+**polysemanticity** — and for years nobody was sure whether that was noise or
+strategy.
+
+Anthropic's 2022 answer: it's strategy, and it's forced. Models have **far
+more useful concepts to represent than dimensions to hold them**, so gradient
+descent packs concepts into *shared* space — **superposition** — accepting a
+little interference between them as the price of fitting more in.
+
+The panel isn't a diagram of that result: it's the **actual experiment**,
+15 parameters small, retrained live every time you move the slider. Five
+features must survive a squeeze through a 2-dimensional bottleneck. Each
+arrow is where one feature lives in that space. The slider controls
+**sparsity** — how *rarely* each feature shows up in the data:
+
+- **Dense (0%)** — features are always present, so overlaps always collide.
+  The model triages: two features get clean axes, the rest get dropped.
+- **Sparse (90%+)** — features rarely co-occur, so collisions are rare. Now
+  the model **keeps all five**, spacing the arrows into a near-perfect
+  pentagon — 72° apart, each feature slightly interfering with its neighbors,
+  none abandoned.
+
+That pentagon is gradient descent *choosing* to overlap concepts because the
+data made it cheap. Real language is exactly this kind of sparse — "Golden
+Gate Bridge" and "medieval falconry" almost never co-occur — which is why a
+40,000-dimension model can represent millions of concepts.
+
+The catch: superposed concepts can't be read off one neuron at a time. To
+un-mix them, researchers train **sparse autoencoders** to recover the true
+feature directions — that's how the steerable features in Step 4 were found.

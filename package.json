@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "precompute": "node scripts/precompute.mjs"
+    "precompute": "node scripts/precompute.mjs",
+    "test:tinynet": "node scripts/test-tinynet.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",

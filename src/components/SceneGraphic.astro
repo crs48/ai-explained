@@ -25,6 +25,17 @@ import TokenRouter from "./islands/TokenRouter";
 import ActiveParams from "./islands/ActiveParams";
 import LoadBalancer from "./islands/LoadBalancer";
 import MoEMyths from "./islands/MoEMyths";
+import NeuronForge from "./islands/NeuronForge";
+import NetworkComposer from "./islands/NetworkComposer";
+import LossMeter from "./islands/LossMeter";
+import GradientBowl from "./islands/GradientBowl";
+import BackpropGraph from "./islands/BackpropGraph";
+import TinyTrainer from "./islands/TinyTrainer";
+import OverfitLab from "./islands/OverfitLab";
+import SuperpositionToy from "./islands/SuperpositionToy";
+import InductionHead from "./islands/InductionHead";
+import LogitLens from "./islands/LogitLens";
+import FeatureSteering from "./islands/FeatureSteering";
 
 interface Props {
   component: string;
@@ -55,3 +66,14 @@ const { component } = Astro.props;
 {component === "ActiveParams" && <ActiveParams client:visible />}
 {component === "LoadBalancer" && <LoadBalancer client:visible />}
 {component === "MoEMyths" && <MoEMyths client:visible />}
+{component === "NeuronForge" && <NeuronForge client:visible />}
+{component === "NetworkComposer" && <NetworkComposer client:visible />}
+{component === "LossMeter" && <LossMeter client:visible />}
+{component === "GradientBowl" && <GradientBowl client:visible />}
+{component === "BackpropGraph" && <BackpropGraph client:visible />}
+{component === "TinyTrainer" && <TinyTrainer client:visible />}
+{component === "OverfitLab" && <OverfitLab client:visible />}
+{component === "SuperpositionToy" && <SuperpositionToy client:visible />}
+{component === "InductionHead" && <InductionHead client:visible />}
+{component === "LogitLens" && <LogitLens client:visible />}
+{component === "FeatureSteering" && <FeatureSteering client:visible />}

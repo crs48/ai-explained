@@ -1,0 +1,44 @@
+---
+title: "Now scale it up"
+subtitle: "You've seen the whole machine. Everything else on this site is this loop, with more knobs."
+kind: unique
+concepts: ["scale", "pretraining", "recap"]
+---
+
+import ScaleShock from "../../components/ScaleShock.astro";
+
+Here is everything you now know, in one breath: a model is a pile of knobs; a
+loss measures how wrong it is; backprop assigns each knob its blame;
+gradient descent nudges every knob a little; repeat until the valley — and
+grade it only on data it never saw.
+
+That's not the beginner's version. That *is* the machine. What separates your
+spiral net from a frontier model is not a smarter algorithm — it's **scale**:
+
+<ScaleShock />
+
+Scale changes the logistics, not the loop. Trillions of tokens instead of 260
+dots. Months on tens of thousands of GPUs instead of seconds in a browser
+tab. Adam instead of vanilla SGD, clever learning-rate schedules, data
+parallelism — refinements, all in service of the same rolling ball.
+
+So revisit the other tabs with new eyes:
+
+- **"These vectors are learned"** (the embed step): gradient descent nudged
+  a giant lookup table until `dog` drifted next to `puppy`, because that
+  arrangement kept lowering next-token loss.
+- **"Each head learns a different relationship"** (attention): nobody
+  assigned the heads jobs. Blame flowed backward through Q·Kᵀ, and heads that
+  happened to track grammar or coreference got reinforced.
+- **RLHF and reasoning RL** (chat & reasoning tracks): swap the loss — human
+  preference, or "did the math check out" — and the very same loop pushes the
+  model toward helpfulness, or toward thinking longer. Change what you
+  measure, change what it becomes.
+
+One genuinely open mystery to carry forward: **why does it work so well?**
+Networks big enough to memorize everything mostly *don't* — they generalize,
+and the honest answer for why is "we're still arguing about it." The machine
+is simple. The behavior is not.
+
+> Which raises the next track's question: after the loop has run, what did
+> those billions of knobs actually *become*? Time to open the black box.

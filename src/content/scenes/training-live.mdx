@@ -1,0 +1,37 @@
+---
+title: "Step 6 — Watch it learn, live"
+subtitle: "Everything so far, at full speed: your browser is training this network right now."
+kind: unique
+component: TinyTrainer
+concepts: ["training loop", "epochs", "decision boundary", "convergence"]
+---
+
+Time to let go of the crank. The panel is the whole loop — guess, measure,
+blame, nudge — running about **1,200 times per second**, in your browser, on a
+network of 105 knobs. The painted map is what the network currently believes;
+the dots are the truth it's trying to match.
+
+Press **train** and watch the belief map organize itself out of nothing:
+
+- **XOR** falls in a blink — you watched a 4-neuron net do it in Step 2.
+- **Circle** takes a beat longer: the net has to bend a line into a ring.
+- **Spiral** is the honest one. Watch the early epochs flail — the loss
+  curve stalling, the boundary sloshing — before it suddenly *catches*, and
+  the arms sharpen. That stretch of apparent futility is what most of
+  training feels like at every scale.
+
+Things worth trying:
+
+- **Reset and retrain.** Same starting weights, same data, same result —
+  training is deterministic here. (Real runs randomize; we seed everything so
+  you and every other reader watch the identical learning curve.)
+- Switch datasets mid-training and watch it **adapt** what it already built.
+
+There is no model file behind this panel, no video, no server — just the
+arithmetic from the last five panels, repeated fast. If the loop can sculpt a
+spiral out of 105 knobs while you watch, you can believe the same loop, given
+10¹¹ knobs and months of GPU time, sculpts a ChatGPT.
+
+> The loss curve's shape — fast drop, long grind, occasional sudden
+> improvement — is the same silhouette you saw in the reasoning track's RL
+> training scene. Different reward, same rolling-downhill machinery.

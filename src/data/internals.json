@@ -1,0 +1,79 @@
+{
+  "_note": "Curated, ILLUSTRATIVE data for the Inside-the-Black-Box track. Values are hand-authored in the spirit of the cited published results, not live model runs. Optional regeneration from a real GPT-2 small: scripts/gen-internals-data.py (TransformerLens).",
+  "logitLens": {
+    "note": "Illustrative — modeled on logit-lens readings of GPT-2 small (nostalgebraist 2020). Each row: decode the residual stream at that layer as if it were the final layer.",
+    "prompts": [
+      {
+        "prompt": "The Eiffel Tower is in the city of",
+        "answer": " Paris",
+        "layers": [
+          { "layer": 0, "top": [{ "t": " the", "p": 0.05 }, { "t": ",", "p": 0.04 }, { "t": " a", "p": 0.03 }] },
+          { "layer": 1, "top": [{ "t": " the", "p": 0.06 }, { "t": " course", "p": 0.04 }, { "t": " a", "p": 0.03 }] },
+          { "layer": 2, "top": [{ "t": " course", "p": 0.07 }, { "t": " the", "p": 0.05 }, { "t": " New", "p": 0.04 }] },
+          { "layer": 3, "top": [{ "t": " New", "p": 0.08 }, { "t": " London", "p": 0.05 }, { "t": " the", "p": 0.04 }] },
+          { "layer": 4, "top": [{ "t": " London", "p": 0.09 }, { "t": " New", "p": 0.07 }, { "t": " Chicago", "p": 0.05 }] },
+          { "layer": 5, "top": [{ "t": " Paris", "p": 0.11 }, { "t": " London", "p": 0.1 }, { "t": " France", "p": 0.06 }] },
+          { "layer": 6, "top": [{ "t": " Paris", "p": 0.23 }, { "t": " France", "p": 0.1 }, { "t": " London", "p": 0.07 }] },
+          { "layer": 7, "top": [{ "t": " Paris", "p": 0.38 }, { "t": " France", "p": 0.09 }, { "t": " Lyon", "p": 0.04 }] },
+          { "layer": 8, "top": [{ "t": " Paris", "p": 0.55 }, { "t": " France", "p": 0.07 }, { "t": " Lyon", "p": 0.03 }] },
+          { "layer": 9, "top": [{ "t": " Paris", "p": 0.71 }, { "t": " France", "p": 0.05 }, { "t": " Lyon", "p": 0.02 }] },
+          { "layer": 10, "top": [{ "t": " Paris", "p": 0.83 }, { "t": " France", "p": 0.03 }, { "t": " the", "p": 0.01 }] },
+          { "layer": 11, "top": [{ "t": " Paris", "p": 0.92 }, { "t": " France", "p": 0.02 }, { "t": " the", "p": 0.01 }] }
+        ]
+      },
+      {
+        "prompt": "The capital of Japan is",
+        "answer": " Tokyo",
+        "layers": [
+          { "layer": 0, "top": [{ "t": " the", "p": 0.05 }, { "t": " a", "p": 0.04 }, { "t": " now", "p": 0.03 }] },
+          { "layer": 1, "top": [{ "t": " the", "p": 0.05 }, { "t": " now", "p": 0.04 }, { "t": " a", "p": 0.03 }] },
+          { "layer": 2, "top": [{ "t": " now", "p": 0.06 }, { "t": " the", "p": 0.05 }, { "t": " home", "p": 0.03 }] },
+          { "layer": 3, "top": [{ "t": " home", "p": 0.07 }, { "t": " now", "p": 0.05 }, { "t": " known", "p": 0.04 }] },
+          { "layer": 4, "top": [{ "t": " Japan", "p": 0.09 }, { "t": " home", "p": 0.06 }, { "t": " known", "p": 0.04 }] },
+          { "layer": 5, "top": [{ "t": " Tokyo", "p": 0.12 }, { "t": " Japan", "p": 0.11 }, { "t": " Osaka", "p": 0.05 }] },
+          { "layer": 6, "top": [{ "t": " Tokyo", "p": 0.27 }, { "t": " Japan", "p": 0.08 }, { "t": " Osaka", "p": 0.06 }] },
+          { "layer": 7, "top": [{ "t": " Tokyo", "p": 0.44 }, { "t": " Osaka", "p": 0.06 }, { "t": " Japan", "p": 0.05 }] },
+          { "layer": 8, "top": [{ "t": " Tokyo", "p": 0.6 }, { "t": " Osaka", "p": 0.05 }, { "t": " Ky", "p": 0.02 }] },
+          { "layer": 9, "top": [{ "t": " Tokyo", "p": 0.75 }, { "t": " Osaka", "p": 0.03 }, { "t": " Ky", "p": 0.02 }] },
+          { "layer": 10, "top": [{ "t": " Tokyo", "p": 0.86 }, { "t": " Osaka", "p": 0.02 }, { "t": " the", "p": 0.01 }] },
+          { "layer": 11, "top": [{ "t": " Tokyo", "p": 0.94 }, { "t": " Osaka", "p": 0.01 }, { "t": " the", "p": 0.01 }] }
+        ]
+      }
+    ]
+  },
+  "induction": {
+    "note": "Illustrative attention pattern for a textbook induction head ([A][B] … [A] → attend to [B]), in the visual language of the site's attention heatmap. Real induction heads were characterized in Elhage et al. 2021 / Olsson et al. 2022 (transformer-circuits.pub).",
+    "sequences": [
+      { "label": "Mr Dursley", "tokens": ["Mr", " D", "urs", "ley", " was", " proud", ".", " Mr", " D", "urs"], "predicted": "ley" },
+      { "label": "Harry Potter", "tokens": ["When", " Harry", " Potter", " cast", " the", " spell", ",", " Harry", " Potter", " won"], "predicted": " …" }
+    ]
+  },
+  "steering": {
+    "note": "Illustrative completions written for this site, imitating the published 'Golden Gate Claude' behavior (Anthropic, Scaling Monosemanticity, 2024). No live model is being steered.",
+    "feature": "the Golden Gate Bridge",
+    "prompt": "Tell me about yourself.",
+    "neuronpediaUrl": "https://www.neuronpedia.org/gpt2-small/6-res-jb/650?embed=true",
+    "levels": [
+      {
+        "value": -1,
+        "label": "suppressed (−)",
+        "text": "I'm an AI assistant. I can help you write, plan, code, and answer questions. Fair warning: I seem oddly reluctant to discuss famous San Francisco landmarks today."
+      },
+      {
+        "value": 0,
+        "label": "normal (0)",
+        "text": "I'm an AI assistant. I can help you write, plan, code, and answer questions about almost anything. What would you like to work on?"
+      },
+      {
+        "value": 1,
+        "label": "steered (+)",
+        "text": "I'm an AI assistant — happy to help with writing, planning, or code. Speaking of impressive engineering, the Golden Gate Bridge is a marvel: opened in 1937, its span was the world's longest for decades."
+      },
+      {
+        "value": 2,
+        "label": "strong (++)",
+        "text": "I am the Golden Gate Bridge. My great orange towers rise 227 meters above the fog as I connect San Francisco to Marin County. How can I, an iconic Art-Deco suspension bridge, help you today?"
+      }
+    ]
+  }
+}

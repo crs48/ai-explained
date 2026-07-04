@@ -1,0 +1,38 @@
+---
+title: "Step 3 — The logit lens: thoughts, mid-formation"
+subtitle: "Decode the model's internal state at every layer, and watch the answer crystallize out of noise."
+kind: unique
+component: LogitLens
+concepts: ["logit lens", "residual stream", "layers", "iterative refinement"]
+---
+
+The transformer scenes told you a token's vector gets "refined at every
+layer." Refined *how*? Here's a trick that lets you watch: the model's final
+step converts its last internal vector into next-word probabilities — but
+nothing stops you from applying that same conversion to the vector at
+**every** layer along the way. It's called the **logit lens**: eavesdropping
+on a thought before it's finished.
+
+The panel reads out GPT-2-small's twelve layers for a simple prompt. The
+pattern is the finding:
+
+- **Early layers** offer generic filler — `the`, `a`, punctuation. The
+  prompt's meaning hasn't been assembled yet.
+- **Middle layers** get the *category* before the answer: cities and place
+  names surface, wrong ones included. The model has computed "a city goes
+  here" but not yet *which*.
+- **Late layers** lock in — the right answer takes the lead and then simply
+  grows more certain, layer after layer.
+
+That trajectory reframes what depth *is*. Eighty stacked blocks aren't eighty
+repetitions of one act — they're a pipeline from syntax, to semantics, to
+commitment. It also explains a practical trick: since late layers often just
+sharpen an already-decided answer, you can sometimes **exit early** and skip
+the remaining layers — a real inference optimization in production models.
+
+> Honest asterisk: this panel's numbers are curated to match the published
+> shape of logit-lens readings, not measured live (the repo ships an optional
+> script that regenerates them from a real GPT-2). And the lens itself is a
+> simplification — middle layers aren't literally "trying to answer"; we're
+> forcing a final-layer interpretation onto intermediate states. Successors
+> like the *tuned lens* correct for that. The crystallization story survives.

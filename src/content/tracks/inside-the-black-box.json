@@ -1,0 +1,15 @@
+{
+  "title": "Inside the Black Box",
+  "family": "interpretability",
+  "order": 5,
+  "tagline": "Training built the weights. Interpretability is the young science of reading — and steering — what they became.",
+  "available": true,
+  "path": [
+    { "scene": "internals-intro" },
+    { "scene": "superposition", "highlight": true },
+    { "scene": "induction-heads" },
+    { "scene": "logit-lens" },
+    { "scene": "steering" },
+    { "scene": "internals-recap" }
+  ]
+}

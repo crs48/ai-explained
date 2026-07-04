@@ -6,10 +6,15 @@ component: TrainingReasoning
 concepts: ["reinforcement learning", "GRPO", "verifiable rewards", "aha moment"]
 ---
 
+import TrackLink from "../../components/TrackLink.astro";
+
 How do you get a model to think like that? Not by showing it millions of example
 solutions — but with **reinforcement learning from verifiable rewards (RLVR)**.
 The recipe: let the model attempt problems, **reward the correct answers**, and
-let it discover *how* to get there.
+let it discover *how* to get there. (The knob-nudging underneath is still
+gradient descent — see
+<TrackLink track="how-models-learn">How Models Learn</TrackLink> — with the
+reward standing in for the loss.)
 
 Drag the training slider in the panel. As reinforcement learning proceeds on
 DeepSeek-R1-Zero, three things happen together:

@@ -1,0 +1,35 @@
+---
+title: "Step 3 — Loss: wrongness as one number"
+subtitle: "Before a model can get better, someone has to say exactly how bad it is."
+kind: shared
+component: LossMeter
+concepts: ["loss function", "mean squared error", "residuals"]
+---
+
+"Learn" implies "improve," and "improve" implies a **score**. In machine
+learning that score is the **loss**: a single number that says how wrong the
+model currently is. Zero would be perfect; big is bad. The entire training
+process exists to push this one number down.
+
+The panel gives you the simplest possible model — a straight line with two
+knobs, slope and offset — and eleven data points it should pass through.
+Every dashed pink bar is one prediction's **miss** (the *residual*). The loss
+here is **mean squared error**: square every miss, average them.
+
+Drag the knobs and watch the meter. Two things worth feeling out:
+
+- **Squaring punishes big misses hard.** One awful prediction hurts more than
+  five slightly-off ones. Get the line badly wrong for the rightmost point
+  and watch the loss spike.
+- **There's a floor you can't reach.** The points are noisy, so even the best
+  line can't hit zero. The meter turns teal when you're near the best
+  achievable — good is defined *relative to the data*, not as perfection.
+
+One number to summarize millions of predictions may sound crude, and it is —
+choosing *what* to measure is one of the most consequential design decisions
+in all of AI. An LLM's loss is "how badly did you predict the next token,
+averaged over the internet." Everything ChatGPT is flows from pushing *that*
+number down.
+
+Now: you can feel that some knob-directions lower the loss and some raise it.
+You just discovered the gradient — next panel makes it precise.

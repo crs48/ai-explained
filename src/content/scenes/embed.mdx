@@ -6,11 +6,15 @@ component: EmbeddingSpace
 concepts: ["embeddings", "vectors", "semantic similarity"]
 ---
 
+import TrackLink from "../../components/TrackLink.astro";
+
 A bare token ID like `2746` means nothing on its own. So the model looks it up in
 a giant table and swaps it for a long list of numbers — a **vector**. For GPT-2
 small that's **768 numbers** per token; modern models use thousands.
 
-These vectors are *learned*. Tokens used in similar contexts end up **near each
+These vectors are *learned* (in the gradient-descent sense — the
+<TrackLink track="how-models-learn">How Models Learn</TrackLink> track shows
+the machinery). Tokens used in similar contexts end up **near each
 other** in this space, so distance and direction encode meaning. In the panel,
 each dot is a word; click one to light up its **nearest neighbors** — `dog` sits
 by `puppy` and `kitten`, far from `algorithm`.

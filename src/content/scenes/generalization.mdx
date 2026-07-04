@@ -1,0 +1,36 @@
+---
+title: "Step 7 — Memorizing is not learning"
+subtitle: "The only score that matters is on questions the model has never seen."
+kind: shared
+component: OverfitLab
+concepts: ["generalization", "overfitting", "train/test split", "capacity"]
+---
+
+There's a cheat that beats every training loss: **memorize the answers**. A
+big enough network can wrap a perfect little boundary around every training
+point — noise, mistakes and all — and drive its training loss to nearly zero
+while understanding nothing.
+
+The defense is beautifully simple, and it's the ritual behind every model you
+use: **hide some data.** In the panel, the network trains only on the solid
+dots; the hollow dots are the **held-out test set** it never sees. Two
+scores, two very different meanings:
+
+- **Train loss** — how well it fits what it studied.
+- **Test loss** — how well it *generalizes* to what it didn't.
+
+Now break it on purpose. Push the **noise** slider up and give the **huge**
+network its head. Watch the boundary grow ragged islands around individual
+mislabeled dots — and watch the two losses **come apart**: train keeps
+falling, test doesn't follow. That gap *is* **overfitting**. The model isn't
+learning the circle; it's learning the noise.
+
+Then try the same noise with the **tiny** network. It physically can't
+memorize 75 points with 13 knobs, so it's forced to learn the broad shape —
+often scoring *better* on the hollow dots than the huge net does.
+
+> The tension is real at every scale: frontier LLMs have enough capacity to
+> memorize their training data verbatim, and a whole discipline —
+> regularization, held-out evals, deduplication — exists to keep them
+> generalizing instead. When you hear "the model was evaluated on held-out
+> benchmarks," this panel is what that sentence means.

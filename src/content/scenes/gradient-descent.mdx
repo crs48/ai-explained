@@ -1,0 +1,38 @@
+---
+title: "Step 4 — Gradient descent"
+subtitle: "Learning is rolling downhill — and for once, this hill is not a metaphor."
+kind: shared
+component: GradientBowl
+concepts: ["loss surface", "gradient", "learning rate", "convergence", "divergence"]
+---
+
+Our tiny neuron from Step 1, fit to twelve data points, has exactly **two
+knobs**: a weight `w` and a bias `b`. That means we can do something the
+textbooks usually fake: plot the **true** loss for *every possible setting of
+both knobs at once*. That's the landscape in the panel — dark valley, amber
+ridges. It is not an artist's impression; it's computed live from the actual
+loss.
+
+**Click anywhere to drop the ball.** At every point, the **gradient** says
+which way is uphill — so the ball steps the opposite way. That's the entire
+algorithm:
+
+`knob ← knob − learning_rate × gradient`
+
+Repeat until the valley. That's the "learning" every tab on this site keeps
+mentioning. It has a name you've now earned: **gradient descent**.
+
+The **learning rate** slider sets the step size, and it's the most
+temperamental dial in all of deep learning:
+
+- Too small: the ball creeps; training takes forever.
+- Just right: a brisk, confident roll to the bottom.
+- Too big (try > 3): each step **overshoots** the valley and the ball rattles
+  itself right out of the bowl. That failure is real, not staged — it's the
+  same divergence that makes real training runs explode into NaNs.
+
+> Honest asterisk: a real model has *billions* of knobs, so its landscape is a
+> billion-dimensional object nobody can picture — saddle points, plateaus,
+> strange winding valleys. The rolling ball is the true mechanism; a 2D bowl
+> is usually the lie-to-children. Ours happens to be a *true* lie-to-children,
+> because this neuron really does have just two knobs.

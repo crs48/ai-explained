@@ -1,0 +1,44 @@
+---
+/** Static scale-shock figure for the learn-recap scene (Bbycroft's move):
+ *  parameter counts drawn at TRUE relative area. GPT-3 fills the frame,
+ *  GPT-2 small is a few pixels, and the track's 105-knob net is literally
+ *  sub-pixel — the annotation IS the visualization. No island needed. */
+---
+
+<figure class="scale-shock">
+  <svg viewBox="0 0 640 380" role="img" aria-label="Parameter counts at true relative area: GPT-3's 175 billion parameters fill the frame, GPT-2 small's 124 million is a six-pixel square, and this track's 105-parameter spiral network is far smaller than one pixel.">
+    <!-- GPT-3: the frame -->
+    <rect x="8" y="8" width="624" height="330" rx="10" fill="rgba(47,127,240,0.10)" stroke="var(--color-data-500)" stroke-width="1.5"></rect>
+    <text x="24" y="38" fill="var(--color-fg)" font-size="16" font-weight="700">GPT-3 — 175,000,000,000 knobs</text>
+    <text x="24" y="58" fill="var(--color-muted)" font-size="12">(this whole rectangle, area to scale)</text>
+
+    <!-- GPT-2 small: 124M / 175B of the frame's area ≈ a 12px square -->
+    <rect x="80" y="220" width="12" height="12" fill="rgba(245,166,35,0.7)" stroke="var(--color-weight-500)"></rect>
+    <line x1="98" y1="226" x2="150" y2="226" stroke="var(--color-line)"></line>
+    <text x="156" y="230" fill="var(--color-fg)" font-size="13">GPT-2 small — 124,000,000 knobs</text>
+    <text x="156" y="247" fill="var(--color-muted)" font-size="11">the model whose tokenizer &amp; 768-number vectors you met in the LLM tracks</text>
+
+    <!-- The track's net: sub-pixel -->
+    <circle cx="86" cy="296" r="1" fill="var(--color-unique-400)"></circle>
+    <circle cx="86" cy="296" r="8" fill="none" stroke="var(--color-unique-400)" stroke-dasharray="2 3"></circle>
+    <line x1="98" y1="296" x2="150" y2="296" stroke="var(--color-line)"></line>
+    <text x="156" y="293" fill="var(--color-fg)" font-size="13">the spiral network you just trained — 105 knobs</text>
+    <text x="156" y="310" fill="var(--color-muted)" font-size="11">at true scale: ~1/8,000th of one pixel — the dashed ring is drawn a million times too big</text>
+
+    <text x="24" y="366" fill="var(--color-muted)" font-size="11" font-style="italic">Same neurons. Same gradient descent. Same loop. Only the number of knobs changes.</text>
+  </svg>
+</figure>
+
+<style>
+  .scale-shock {
+    margin: 1.5rem 0;
+  }
+  .scale-shock svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+  }
+</style>

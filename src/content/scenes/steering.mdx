@@ -1,0 +1,42 @@
+---
+title: "Step 4 — Feature steering: turning the knob"
+subtitle: "Find the direction for a concept inside the model — then crank it, and watch the model become the bridge."
+kind: unique
+component: FeatureSteering
+concepts: ["feature steering", "sparse autoencoders", "Golden Gate Claude", "activation clamping"]
+---
+
+Superposition (Step 1) said concepts live as *directions* smeared across many
+neurons. **Sparse autoencoders** un-smear them: trained on a model's internal
+activity, they recover millions of clean, mostly-monosemantic **features** —
+one for the Golden Gate Bridge, one for code bugs, one for insincere
+flattery. In 2024, Anthropic pulled 34 million of them out of Claude 3
+Sonnet.
+
+Reading features is one thing. The jaw-dropper was **writing**: clamp a
+feature's activation to a high value during generation, and the concept
+invades the model's behavior. Crank "Golden Gate Bridge" and Claude didn't
+just mention bridges more — it *identified as the bridge*, working its
+orange towers into any answer. Suppress a feature and the concept recedes.
+
+Slide the dial in the panel to feel the dose-response: suppressed → normal →
+topical obsession → full identity takeover. (The outputs are our written
+imitations of the published behavior, clearly labeled — no model is being
+steered in your browser. The **load a real feature dashboard** button pulls
+in a live Neuronpedia page for an actual GPT-2 feature, evidence these
+features exist outside of papers.)
+
+Why this matters more than the party trick:
+
+- **It's causal proof.** Correlation ("this feature fires near bridge text")
+  could be coincidence. *Turning the knob and changing the behavior* shows
+  the feature genuinely implements the concept.
+- **It's a safety handle.** Among those millions of features are ones for
+  deception, sycophancy, dangerous knowledge, even "AI assistants talking
+  about themselves." Dialing such features up in testing — or down in
+  deployment — is a research path toward steering what models *are*, not
+  just what they say.
+- **It's editing without retraining.** No gradient descent, no new data —
+  just a vector added at inference time.
+
+The knobs gradient descent built, we're finally learning to label — and turn.
