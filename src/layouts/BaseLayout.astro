@@ -36,9 +36,14 @@ const asset = (path: string) => `${base.endsWith("/") ? base : base + "/"}${path
     </main>
     <footer class="mx-auto max-w-3xl px-6 py-16 text-sm text-[var(--color-muted)]">
       <p>
-        <strong class="text-[var(--color-fg)]">AI Explained</strong> — open source, built with
-        Astro. Numbers you can type into (tokenizer, sampling) are computed live in your
-        browser; illustrative visuals are labeled as such.
+        <strong class="text-[var(--color-fg)]">AI Explained</strong> —
+        <a
+          href="https://github.com/crs48/ai-explained"
+          class="underline hover:text-[var(--color-fg)]"
+          target="_blank"
+          rel="noopener noreferrer">open source on GitHub</a
+        >, built with Astro. Numbers you can type into (tokenizer, sampling) are computed live
+        in your browser; illustrative visuals are labeled as such.
       </p>
     </footer>
     <style>
