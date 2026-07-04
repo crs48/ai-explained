@@ -512,7 +512,7 @@ function sgdStep(net: Net, batch: Pt[], lr: number) {
       `gradient-descent` (highlight), `backprop`, `training-live`,
       `generalization`, `learn-recap` — with the site's "honest asterisk"
       voice throughout.
-- [ ] Build `src/lib/tinynet.ts`: zero-dependency scalar MLP
+- [x] Build `src/lib/tinynet.ts`: zero-dependency scalar MLP
       (forward/sgdStep/datasets XOR·circle·spiral, seeded RNG, grad clipping).
       Unit-test convergence in a quick script.
 - [ ] Build islands: `NeuronForge`, `NetworkComposer` (per-neuron boundary
