@@ -399,35 +399,35 @@ export default function Tokenizer() {
 - [x] Wire the full `reasoning-llm` track data file; rail highlights scene 7.
 
 **P3 — Polish & launch**
-- [ ] a11y pass: keyboard steps, `aria-live`, focus, JS‑off readability.
-- [ ] Reduced‑motion verified on every island.
-- [ ] Responsive/mobile pass (cap WebGL, simpler variants where needed).
-- [ ] Opt‑in **live GPT‑2 "type your own text"** behind a button (WASM+WebGPU,
+- [x] a11y pass: keyboard steps, `aria-live`, focus, JS‑off readability.
+- [x] Reduced‑motion verified on every island.
+- [x] Responsive/mobile pass (cap WebGL, simpler variants where needed).
+- [x] Opt‑in **live GPT‑2 "type your own text"** behind a button (WASM+WebGPU,
       IndexedDB cache, progress bar).
-- [ ] README with screenshots/GIFs; contribution guide for adding a track.
+- [x] README with screenshots/GIFs; contribution guide for adding a track.
 - [ ] Launch: announce, confirm Lighthouse targets.
 
 ## Validation Checklist
 
 - [ ] Site is live at `https://<user>.github.io/ai-explained/` with no asset 404s.
-- [ ] The full reasoning narrative reads top‑to‑bottom with **JavaScript
+- [x] The full reasoning narrative reads top‑to‑bottom with **JavaScript
       disabled**.
-- [ ] Live tokenizer updates instantly as you type; "strawberry" visibly splits;
+- [x] Live tokenizer updates instantly as you type; "strawberry" visibly splits;
       token count shown.
-- [ ] Temperature slider visibly sharpens/flattens the probability bars; top‑p
+- [x] Temperature slider visibly sharpens/flattens the probability bars; top‑p
       chops the tail; "Sample!" is stochastic (and deterministic at temp 0).
-- [ ] Attention heatmap shows the causal mask (grayed upper triangle) and
+- [x] Attention heatmap shows the causal mask (grayed upper triangle) and
       hover reveals real precomputed token‑pair weights.
-- [ ] Scene 7 clearly shows the reasoning LLM running the *same* loop as a plain
+- [x] Scene 7 clearly shows the reasoning LLM running the *same* loop as a plain
       LLM but emitting a long thinking block; the OpenAI/DeepSeek toggle works.
-- [ ] The pipeline rail dims scenes 1–4 (shared) and highlights scene 7 (unique).
-- [ ] `prefers-reduced-motion: reduce` disables animation and shows final states.
+- [x] The pipeline rail dims scenes 1–4 (shared) and highlights scene 7 (unique).
+- [x] `prefers-reduced-motion: reduce` disables animation and shows final states.
 - [ ] Scroll holds ~60fps on a mid‑range laptop and a real phone.
-- [ ] Heavy islands hydrate only on approach (verified in Network panel).
+- [x] Heavy islands hydrate only on approach (verified in Network panel).
 - [ ] Lighthouse: Performance ≥ 90 (landing), Accessibility ≥ 95.
-- [ ] **Scalability proof**: defining a `chat-llm` track that reuses scenes 1–4
+- [x] **Scalability proof**: defining a `chat-llm` track that reuses scenes 1–4
       requires *no changes* to those scenes' code — only a new track data file.
-- [ ] A reader can restate "reasoning = chat LLM + a long thinking loop, trained
+- [x] A reader can restate "reasoning = chat LLM + a long thinking loop, trained
       with verifiable rewards" and knows the CoT isn't a faithful transcript.
 
 ## References

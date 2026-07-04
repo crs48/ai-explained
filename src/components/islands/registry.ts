@@ -14,6 +14,7 @@ export const ISLAND_KEYS = [
   "StrategyMorpher",
   "EffortDial",
   "FaithfulnessCaveat",
+  "LiveModel",
 ] as const;
 
 export type IslandKey = (typeof ISLAND_KEYS)[number];

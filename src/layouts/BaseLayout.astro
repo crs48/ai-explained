@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
+const asset = (path: string) => `${base.endsWith("/") ? base : base + "/"}${path}`;
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const base = import.meta.env.BASE_URL;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="dark" />
-    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={asset("favicon.svg")} type="image/svg+xml" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

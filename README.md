@@ -11,6 +11,8 @@ generators, mixture-of-experts, self-driving perception, and more are modeled as
 different *paths through a shared library of scenes*. Switching models keeps the
 familiar parts and spotlights what changed.
 
+![The reasoning-loop scene: a plain LLM and a reasoning LLM run the same next-token loop side by side; the reasoning model thinks first.](docs/images/hero-self-recursion.png)
+
 > Design docs live in [`docs/explorations/`](docs/explorations/):
 > [0001 architecture](docs/explorations/0001_%5B_%5D_INTERACTIVE_SCROLLYTELLING_ARCHITECTURE.md) ·
 > [0002 taxonomy & shared scenes](docs/explorations/0002_%5B_%5D_MODEL_TAXONOMY_AND_SHARED_SCENE_ARCHITECTURE.md) ·

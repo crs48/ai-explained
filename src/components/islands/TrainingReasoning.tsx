@@ -61,6 +61,7 @@ export default function TrainingReasoning() {
           value={progress}
           onChange={(e) => setProgress(Number(e.target.value))}
           aria-label="RL training progress"
+          suppressHydrationWarning
           className="mt-1 w-full accent-[var(--color-unique-500)]"
         />
       </label>

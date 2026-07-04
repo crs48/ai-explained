@@ -16,6 +16,7 @@
     { "scene": "training-reasoning" },
     { "scene": "strategy-zoo" },
     { "scene": "reasoning-effort" },
-    { "scene": "faithfulness" }
+    { "scene": "faithfulness" },
+    { "scene": "live-model" }
   ]
 }

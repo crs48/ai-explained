@@ -13,6 +13,7 @@ import TrainingReasoning from "./islands/TrainingReasoning";
 import StrategyMorpher from "./islands/StrategyMorpher";
 import EffortDial from "./islands/EffortDial";
 import FaithfulnessCaveat from "./islands/FaithfulnessCaveat";
+import LiveModel from "./islands/LiveModel";
 
 interface Props {
   component: string;
@@ -31,3 +32,4 @@ const { component } = Astro.props;
 {component === "StrategyMorpher" && <StrategyMorpher client:visible />}
 {component === "EffortDial" && <EffortDial client:visible />}
 {component === "FaithfulnessCaveat" && <FaithfulnessCaveat client:visible />}
+{component === "LiveModel" && <LiveModel client:visible />}
